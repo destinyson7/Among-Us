@@ -6,7 +6,6 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include <shader.h>
-#include <camera.h>
 
 #include <iostream>
 using namespace std;
