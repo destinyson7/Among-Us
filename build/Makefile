@@ -143,17 +143,17 @@ glad/fast:
 .PHONY : glad/fast
 
 #=============================================================================
-# Target rules for targets named assignment-0
+# Target rules for targets named assignment-1
 
 # Build rule for target.
-assignment-0: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 assignment-0
-.PHONY : assignment-0
+assignment-1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 assignment-1
+.PHONY : assignment-1
 
 # fast build rule for target.
-assignment-0/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-0.dir/build.make CMakeFiles/assignment-0.dir/build
-.PHONY : assignment-0/fast
+assignment-1/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/build
+.PHONY : assignment-1/fast
 
 #=============================================================================
 # Target rules for targets named glfw
@@ -195,13 +195,40 @@ libraries/glad/src/glad.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/libraries/glad/src/glad.c.s
 .PHONY : libraries/glad/src/glad.c.s
 
+source/game.o: source/game.cpp.o
+
+.PHONY : source/game.o
+
+# target to build an object file
+source/game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/game.cpp.o
+.PHONY : source/game.cpp.o
+
+source/game.i: source/game.cpp.i
+
+.PHONY : source/game.i
+
+# target to preprocess a source file
+source/game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/game.cpp.i
+.PHONY : source/game.cpp.i
+
+source/game.s: source/game.cpp.s
+
+.PHONY : source/game.s
+
+# target to generate assembly for a file
+source/game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/game.cpp.s
+.PHONY : source/game.cpp.s
+
 source/main.o: source/main.cpp.o
 
 .PHONY : source/main.o
 
 # target to build an object file
 source/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-0.dir/build.make CMakeFiles/assignment-0.dir/source/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/main.cpp.o
 .PHONY : source/main.cpp.o
 
 source/main.i: source/main.cpp.i
@@ -210,7 +237,7 @@ source/main.i: source/main.cpp.i
 
 # target to preprocess a source file
 source/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-0.dir/build.make CMakeFiles/assignment-0.dir/source/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/main.cpp.i
 .PHONY : source/main.cpp.i
 
 source/main.s: source/main.cpp.s
@@ -219,8 +246,62 @@ source/main.s: source/main.cpp.s
 
 # target to generate assembly for a file
 source/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-0.dir/build.make CMakeFiles/assignment-0.dir/source/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/main.cpp.s
 .PHONY : source/main.cpp.s
+
+source/resource_manager.o: source/resource_manager.cpp.o
+
+.PHONY : source/resource_manager.o
+
+# target to build an object file
+source/resource_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/resource_manager.cpp.o
+.PHONY : source/resource_manager.cpp.o
+
+source/resource_manager.i: source/resource_manager.cpp.i
+
+.PHONY : source/resource_manager.i
+
+# target to preprocess a source file
+source/resource_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/resource_manager.cpp.i
+.PHONY : source/resource_manager.cpp.i
+
+source/resource_manager.s: source/resource_manager.cpp.s
+
+.PHONY : source/resource_manager.s
+
+# target to generate assembly for a file
+source/resource_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/resource_manager.cpp.s
+.PHONY : source/resource_manager.cpp.s
+
+source/shader.o: source/shader.cpp.o
+
+.PHONY : source/shader.o
+
+# target to build an object file
+source/shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/shader.cpp.o
+.PHONY : source/shader.cpp.o
+
+source/shader.i: source/shader.cpp.i
+
+.PHONY : source/shader.i
+
+# target to preprocess a source file
+source/shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/shader.cpp.i
+.PHONY : source/shader.cpp.i
+
+source/shader.s: source/shader.cpp.s
+
+.PHONY : source/shader.s
+
+# target to generate assembly for a file
+source/shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/shader.cpp.s
+.PHONY : source/shader.cpp.s
 
 # Help Target
 help:
@@ -230,15 +311,24 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... assignment-0"
+	@echo "... assignment-1"
 	@echo "... glad"
 	@echo "... glfw"
 	@echo "... libraries/glad/src/glad.o"
 	@echo "... libraries/glad/src/glad.i"
 	@echo "... libraries/glad/src/glad.s"
+	@echo "... source/game.o"
+	@echo "... source/game.i"
+	@echo "... source/game.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"
+	@echo "... source/resource_manager.o"
+	@echo "... source/resource_manager.i"
+	@echo "... source/resource_manager.s"
+	@echo "... source/shader.o"
+	@echo "... source/shader.i"
+	@echo "... source/shader.s"
 .PHONY : help
 
 

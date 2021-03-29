@@ -4,7 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/tanish/Documents/Computer Graphics/assignments/1/source/main.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-0.dir/source/main.cpp.o"
+  "/Users/tanish/Documents/Computer Graphics/assignments/1/source/game.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/game.cpp.o"
+  "/Users/tanish/Documents/Computer Graphics/assignments/1/source/main.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/main.cpp.o"
+  "/Users/tanish/Documents/Computer Graphics/assignments/1/source/resource_manager.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/resource_manager.cpp.o"
+  "/Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/shader.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

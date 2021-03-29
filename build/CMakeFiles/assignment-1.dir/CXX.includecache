@@ -78,28 +78,10 @@ GL/gl.h
 GL/glext.h
 -
 
-../source/camera.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/game.h
 glad/glad.h
 -
-glm/glm.hpp
--
-glm/gtc/matrix_transform.hpp
--
-vector
--
-
-../source/shader.h
-glad/glad.h
--
-glm/glm.hpp
--
-string
--
-fstream
--
-sstream
--
-iostream
+GLFW/glfw3.h
 -
 
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/main.cpp
@@ -107,17 +89,31 @@ glad/glad.h
 -
 GLFW/glfw3.h
 -
-glm/glm.hpp
+game.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/game.h
+resource_manager.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/resource_manager.h
+iostream
 -
-glm/gtc/matrix_transform.hpp
+
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/resource_manager.h
+map
 -
-glm/gtc/type_ptr.hpp
+string
+-
+glad/glad.h
 -
 shader.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
+
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
+string
 -
-camera.h
+glad/glad.h
 -
-iostream
+glm/glm.hpp
+-
+glm/gtc/type_ptr.hpp
 -
 
 /usr/local/include/glm/common.hpp

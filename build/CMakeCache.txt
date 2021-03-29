@@ -197,7 +197,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=assignment-0
+CMAKE_PROJECT_NAME:STATIC=assignment-1
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=3.4.0
@@ -295,10 +295,10 @@ GLFW_VULKAN_STATIC:BOOL=OFF
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/local/bin/pkg-config
 
 //Value Computed by CMake
-assignment-0_BINARY_DIR:STATIC=/Users/tanish/Documents/Computer Graphics/assignments/1/build
+assignment-1_BINARY_DIR:STATIC=/Users/tanish/Documents/Computer Graphics/assignments/1/build
 
 //Value Computed by CMake
-assignment-0_SOURCE_DIR:STATIC=/Users/tanish/Documents/Computer Graphics/assignments/1
+assignment-1_SOURCE_DIR:STATIC=/Users/tanish/Documents/Computer Graphics/assignments/1
 
 
 ########################
