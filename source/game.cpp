@@ -1,9 +1,9 @@
 #include "game.h"
 #include "resource_manager.h"
-#include "sprite_renderer.h"
+#include "maze.h"
 
 // Game-related State data
-SpriteRenderer *Renderer;
+Maze *Renderer;
 
 Game::Game(unsigned int width, unsigned int height)
 	: State(GAME_ACTIVE), Keys(), Width(width), Height(height)
@@ -26,7 +26,7 @@ void Game::Init()
 	ResourceManager::GetShader("sprite").SetMatrix4("projection", projection);
 	// set render-specific controls
 	Shader spriteShader = ResourceManager::GetShader("sprite");
-	Renderer = new SpriteRenderer(spriteShader);
+	Renderer = new Maze(spriteShader);
 	// Renderer = new SpriteRenderer(ResourceManager::GetShader("sprite"));
 	// load textures
 	// ResourceManager::LoadTexture("textures/awesomeface.png", true, "face");
@@ -42,5 +42,5 @@ void Game::ProcessInput(float dt)
 
 void Game::Render()
 {
-	Renderer->DrawSprite(glm::vec2(200.0f, 200.0f), glm::vec2(300.0f, 400.0f), 45.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+	Renderer->DrawMaze(glm::vec2(200.0f, 200.0f), glm::vec2(300.0f, 400.0f), 45.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 }

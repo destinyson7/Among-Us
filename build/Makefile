@@ -249,6 +249,33 @@ source/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/main.cpp.s
 .PHONY : source/main.cpp.s
 
+source/maze.o: source/maze.cpp.o
+
+.PHONY : source/maze.o
+
+# target to build an object file
+source/maze.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/maze.cpp.o
+.PHONY : source/maze.cpp.o
+
+source/maze.i: source/maze.cpp.i
+
+.PHONY : source/maze.i
+
+# target to preprocess a source file
+source/maze.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/maze.cpp.i
+.PHONY : source/maze.cpp.i
+
+source/maze.s: source/maze.cpp.s
+
+.PHONY : source/maze.s
+
+# target to generate assembly for a file
+source/maze.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/maze.cpp.s
+.PHONY : source/maze.cpp.s
+
 source/resource_manager.o: source/resource_manager.cpp.o
 
 .PHONY : source/resource_manager.o
@@ -303,33 +330,6 @@ source/shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/shader.cpp.s
 .PHONY : source/shader.cpp.s
 
-source/sprite_renderer.o: source/sprite_renderer.cpp.o
-
-.PHONY : source/sprite_renderer.o
-
-# target to build an object file
-source/sprite_renderer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/sprite_renderer.cpp.o
-.PHONY : source/sprite_renderer.cpp.o
-
-source/sprite_renderer.i: source/sprite_renderer.cpp.i
-
-.PHONY : source/sprite_renderer.i
-
-# target to preprocess a source file
-source/sprite_renderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/sprite_renderer.cpp.i
-.PHONY : source/sprite_renderer.cpp.i
-
-source/sprite_renderer.s: source/sprite_renderer.cpp.s
-
-.PHONY : source/sprite_renderer.s
-
-# target to generate assembly for a file
-source/sprite_renderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/sprite_renderer.cpp.s
-.PHONY : source/sprite_renderer.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -350,15 +350,15 @@ help:
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"
+	@echo "... source/maze.o"
+	@echo "... source/maze.i"
+	@echo "... source/maze.s"
 	@echo "... source/resource_manager.o"
 	@echo "... source/resource_manager.i"
 	@echo "... source/resource_manager.s"
 	@echo "... source/shader.o"
 	@echo "... source/shader.i"
 	@echo "... source/shader.s"
-	@echo "... source/sprite_renderer.o"
-	@echo "... source/sprite_renderer.i"
-	@echo "... source/sprite_renderer.s"
 .PHONY : help
 
 

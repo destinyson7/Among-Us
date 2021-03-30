@@ -34,6 +34,20 @@ stdint.h
 inttypes.h
 -
 
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.cpp
+maze.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.h
+
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.h
+glad/glad.h
+-
+glm/glm.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+shader.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
+
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
 string
 -
@@ -42,26 +56,6 @@ glad/glad.h
 glm/glm.hpp
 -
 glm/gtc/type_ptr.hpp
--
-
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/sprite_renderer.cpp
-sprite_renderer.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/sprite_renderer.h
-
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/sprite_renderer.h
-glad/glad.h
--
-glm/glm.hpp
--
-glm/gtc/matrix_transform.hpp
--
-texture.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/texture.h
-shader.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
-
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/texture.h
-glad/glad.h
 -
 
 /usr/local/include/glm/common.hpp

@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/assignment-1.dir/source/game.cpp.o"
   "CMakeFiles/assignment-1.dir/source/main.cpp.o"
+  "CMakeFiles/assignment-1.dir/source/maze.cpp.o"
   "CMakeFiles/assignment-1.dir/source/resource_manager.cpp.o"
   "CMakeFiles/assignment-1.dir/source/shader.cpp.o"
-  "CMakeFiles/assignment-1.dir/source/sprite_renderer.cpp.o"
   "assignment-1"
   "assignment-1.pdb"
 )

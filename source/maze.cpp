@@ -1,17 +1,17 @@
-#include "sprite_renderer.h"
+#include "maze.h"
 
-SpriteRenderer::SpriteRenderer(Shader &shader)
+Maze::Maze(Shader &shader)
 {
 	this->shader = shader;
 	this->initRenderData();
 }
 
-SpriteRenderer::~SpriteRenderer()
+Maze::~Maze()
 {
 	glDeleteVertexArrays(1, &this->quadVAO);
 }
 
-void SpriteRenderer::DrawSprite(glm::vec2 position, glm::vec2 size, float rotate, glm::vec3 color)
+void Maze::DrawMaze(glm::vec2 position, glm::vec2 size, float rotate, glm::vec3 color)
 {
 	// prepare transformations
 	this->shader.Use();
@@ -37,7 +37,7 @@ void SpriteRenderer::DrawSprite(glm::vec2 position, glm::vec2 size, float rotate
 	glBindVertexArray(0);
 }
 
-void SpriteRenderer::initRenderData()
+void Maze::initRenderData()
 {
 	// configure VAO/VBO
 	unsigned int VBO;
