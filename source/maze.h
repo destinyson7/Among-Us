@@ -14,9 +14,9 @@ using namespace std;
 class Maze
 {
 public:
-	const static int MAZE_WIDTH = 40;
-	const static int MAZE_HEIGHT = 30;
-	int EDGE_LENGTH = 20;
+	const static int MAZE_WIDTH = 8;
+	const static int MAZE_HEIGHT = 10;
+	float EDGE_LENGTH = 15.0f;
 	int n_edges = 0;
 
 	GameObject maze[MAZE_WIDTH][MAZE_HEIGHT];

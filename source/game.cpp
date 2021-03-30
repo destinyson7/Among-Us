@@ -22,8 +22,8 @@ void Game::Init()
 	// configure shaders
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(this->Width),
 									  static_cast<float>(this->Height), 0.0f, -1.0f, 1.0f);
-	ResourceManager::GetShader("sprite").Use().SetInteger("image", 0);
-	ResourceManager::GetShader("sprite").SetMatrix4("projection", projection);
+	// ResourceManager::GetShader("sprite").Use().SetInteger("image", 0);
+	ResourceManager::GetShader("sprite").Use().SetMatrix4("projection", projection);
 	// set render-specific controls
 	Shader spriteShader = ResourceManager::GetShader("sprite");
 	Renderer = new Maze(spriteShader);
