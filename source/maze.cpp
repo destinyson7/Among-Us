@@ -37,6 +37,65 @@ void Maze::DrawMaze(glm::vec2 position, glm::vec2 size, float rotate, glm::vec3 
 	glBindVertexArray(0);
 }
 
+void Maze::GenerateMaze(int edge_length, pair<int, int> start_position)
+{
+	GameObject maze[this->MAZE_WIDTH][this->MAZE_HEIGHT];
+
+	for (int i = 0; i < this->MAZE_WIDTH; i++)
+	{
+		for (int j = 0; j < this->MAZE_HEIGHT; j++)
+		{
+			maze[i][j].bottom_left = {(float)(i * edge_length), (float)(j * edge_length)};
+			maze[i][j].top_left = {(float)(i * edge_length), (float)((j + 1) * edge_length)};
+			maze[i][j].bottom_right = {(float)((i + 1) * edge_length), (float)(j * edge_length)};
+			maze[i][j].top_right = {(float)((i + 1) * edge_length), (float)((j + 1) * edge_length)};
+		}
+	}
+
+	// maze[0][0].IS_BOTTOM_OPEN = true;
+
+	int r = 0, c = 0;
+	while (true)
+	{
+		maze[r][c].visited = true;
+
+		int where = rand() % 4;
+
+		if (where == 0 && c + 1 < this->MAZE_WIDTH && !(maze[r][c + 1].visited))
+		{
+			maze[r][c].IS_RIGHT_OPEN = 1;
+			maze[r][c + 1].IS_LEFT_OPEN = 1;
+			c++;
+		}
+
+		else if (where == 1 && c - 1 >= 0 && !(maze[r][c - 1].visited))
+		{
+			maze[r][c].IS_LEFT_OPEN = 1;
+			maze[r][c - 1].IS_RIGHT_OPEN = 1;
+			c--;
+		}
+
+		else if (where == 2 && r + 1 < this->MAZE_HEIGHT && !(maze[r + 1][c].visited))
+		{
+			maze[r][c].IS_TOP_OPEN = 1;
+			maze[r + 1][c].IS_BOTTOM_OPEN = 1;
+			r++;
+		}
+
+		else if (where == 3 && r - 1 < this->MAZE_HEIGHT && !(maze[r - 1][c].visited))
+		{
+			maze[r][c].IS_BOTTOM_OPEN = 1;
+			maze[r][c - 1].IS_TOP_OPEN = 1;
+			r--;
+		}
+
+		else
+		{
+			break;
+		}
+	}
+}
+
 void Maze::initRenderData()
 {
 	// configure VAO/VBO
