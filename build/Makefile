@@ -303,6 +303,33 @@ source/shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/shader.cpp.s
 .PHONY : source/shader.cpp.s
 
+source/sprite_renderer.o: source/sprite_renderer.cpp.o
+
+.PHONY : source/sprite_renderer.o
+
+# target to build an object file
+source/sprite_renderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/sprite_renderer.cpp.o
+.PHONY : source/sprite_renderer.cpp.o
+
+source/sprite_renderer.i: source/sprite_renderer.cpp.i
+
+.PHONY : source/sprite_renderer.i
+
+# target to preprocess a source file
+source/sprite_renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/sprite_renderer.cpp.i
+.PHONY : source/sprite_renderer.cpp.i
+
+source/sprite_renderer.s: source/sprite_renderer.cpp.s
+
+.PHONY : source/sprite_renderer.s
+
+# target to generate assembly for a file
+source/sprite_renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/sprite_renderer.cpp.s
+.PHONY : source/sprite_renderer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -329,6 +356,9 @@ help:
 	@echo "... source/shader.o"
 	@echo "... source/shader.i"
 	@echo "... source/shader.s"
+	@echo "... source/sprite_renderer.o"
+	@echo "... source/sprite_renderer.i"
+	@echo "... source/sprite_renderer.s"
 .PHONY : help
 
 
