@@ -195,6 +195,33 @@ libraries/glad/src/glad.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/libraries/glad/src/glad.c.s
 .PHONY : libraries/glad/src/glad.c.s
 
+source/activate.o: source/activate.cpp.o
+
+.PHONY : source/activate.o
+
+# target to build an object file
+source/activate.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/activate.cpp.o
+.PHONY : source/activate.cpp.o
+
+source/activate.i: source/activate.cpp.i
+
+.PHONY : source/activate.i
+
+# target to preprocess a source file
+source/activate.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/activate.cpp.i
+.PHONY : source/activate.cpp.i
+
+source/activate.s: source/activate.cpp.s
+
+.PHONY : source/activate.s
+
+# target to generate assembly for a file
+source/activate.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/activate.cpp.s
+.PHONY : source/activate.cpp.s
+
 source/game.o: source/game.cpp.o
 
 .PHONY : source/game.o
@@ -506,6 +533,9 @@ help:
 	@echo "... libraries/glad/src/glad.o"
 	@echo "... libraries/glad/src/glad.i"
 	@echo "... libraries/glad/src/glad.s"
+	@echo "... source/activate.o"
+	@echo "... source/activate.i"
+	@echo "... source/activate.s"
 	@echo "... source/game.o"
 	@echo "... source/game.i"
 	@echo "... source/game.s"
