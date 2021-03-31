@@ -635,6 +635,8 @@ CMakeFiles/assignment-1.dir/source/maze.cpp.o
 CMakeFiles/assignment-1.dir/source/player.cpp.o
  ../libraries/glad/include/KHR/khrplatform.h
  ../libraries/glad/include/glad/glad.h
+ /Users/tanish/Documents/Computer Graphics/assignments/1/source/game_object.h
+ /Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.h
  /Users/tanish/Documents/Computer Graphics/assignments/1/source/player.cpp
  /Users/tanish/Documents/Computer Graphics/assignments/1/source/player.h
  /Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h

@@ -3,12 +3,6 @@
 #include <stack>
 #include <vector>
 
-#define ss second
-#define ff first
-#define mp make_pair
-
-typedef pair<int, int> pii;
-
 template <class Ch, class Tr, class Container>
 basic_ostream<Ch, Tr> &operator<<(basic_ostream<Ch, Tr> &os, Container const &x)
 {
@@ -178,6 +172,8 @@ vector<float> Maze::GenerateMaze(float edge_length, pair<int, int> start_positio
 
 				vertices_vec.push_back((this->maze[i][j]).bottom_right.first);
 				vertices_vec.push_back((this->maze[i][j]).bottom_right.second);
+
+				(this->edges).pb(mp(this->maze[i][j].bottom_left, this->maze[i][j].bottom_right));
 			}
 
 			if (!((this->maze[i][j]).IS_TOP_OPEN))
@@ -187,6 +183,8 @@ vector<float> Maze::GenerateMaze(float edge_length, pair<int, int> start_positio
 
 				vertices_vec.push_back((this->maze[i][j]).top_right.first);
 				vertices_vec.push_back((this->maze[i][j]).top_right.second);
+
+				(this->edges).pb(mp(this->maze[i][j].top_left, this->maze[i][j].top_right));
 			}
 
 			if (!((this->maze[i][j]).IS_LEFT_OPEN))
@@ -196,6 +194,8 @@ vector<float> Maze::GenerateMaze(float edge_length, pair<int, int> start_positio
 
 				vertices_vec.push_back((this->maze[i][j]).top_left.first);
 				vertices_vec.push_back((this->maze[i][j]).top_left.second);
+
+				(this->edges).pb(mp(this->maze[i][j].bottom_left, this->maze[i][j].top_left));
 			}
 
 			if (!((this->maze[i][j]).IS_RIGHT_OPEN))
@@ -205,6 +205,8 @@ vector<float> Maze::GenerateMaze(float edge_length, pair<int, int> start_positio
 
 				vertices_vec.push_back((this->maze[i][j]).top_right.first);
 				vertices_vec.push_back((this->maze[i][j]).top_right.second);
+
+				(this->edges).pb(mp(this->maze[i][j].bottom_right, this->maze[i][j].top_right));
 			}
 		}
 	}

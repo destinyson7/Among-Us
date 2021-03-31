@@ -10,6 +10,15 @@
 #include "game_object.h"
 #include <vector>
 
+#define pb push_back
+#define mp make_pair
+
+#define ss second
+#define ff first
+
+typedef pair<int, int> pii;
+typedef pair<float, float> pff;
+
 using namespace std;
 
 class Maze
@@ -19,6 +28,8 @@ public:
 	const static int MAZE_HEIGHT = 8;
 	float EDGE_LENGTH = 0.15f;
 	int n_edges = 0;
+
+	vector<pair<pff, pff>> edges;
 
 	GameObject maze[MAZE_HEIGHT][MAZE_WIDTH];
 	// Constructor (inits shaders/shapes)

@@ -7,6 +7,7 @@
 
 #include "texture.h"
 #include "shader.h"
+#include "maze.h"
 
 #define mp make_pair
 #define ff first
@@ -29,7 +30,7 @@ public:
 	// Constructor (inits shaders/shapes)
 	Player(Shader &shader);
 
-	const float PLAYER_SIZE = 0.2;
+	const float PLAYER_SIZE = 0.1;
 
 	pff begin;
 	pff cur;
@@ -37,7 +38,8 @@ public:
 	~Player();
 	// Renders a defined quad textured with given sprite
 	void DrawPlayer(Texture2D &texture);
-	void move(int direction, float dt);
+	void move(int direction, float dt, Maze *MazeRenderer);
+	bool CheckCollision(Maze *MazeRenderer);
 
 private:
 	// Render state

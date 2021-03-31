@@ -34,6 +34,26 @@ stdint.h
 inttypes.h
 -
 
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/game_object.h
+glad/glad.h
+-
+glm/glm.hpp
+-
+
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.h
+glad/glad.h
+-
+glm/glm.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+shader.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
+game_object.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/game_object.h
+vector
+-
+
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/player.cpp
 player.h
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/player.h
@@ -49,6 +69,8 @@ texture.h
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/texture.h
 shader.h
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
+maze.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.h
 
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
 string

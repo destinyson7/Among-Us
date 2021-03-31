@@ -4,8 +4,8 @@ Player::Player(Shader &shader)
 {
 	this->shader = shader;
 	// this->begin = mp(0.025, 0.02);
-	this->begin = mp(0.00f, 0.00f);
-	this->cur = mp(0.00f, 0.00f);
+	this->begin = mp(0.00f, 0.10f);
+	this->cur = mp(0.00f, 0.10f);
 	this->initRenderData();
 }
 
@@ -40,26 +40,63 @@ void Player::DrawPlayer(Texture2D &texture)
 	glBindVertexArray(0);
 }
 
-void Player::move(int direction, float dt)
+bool Player::CheckCollision(Maze *MazeRenderer) // AABB - AABB collision
+{
+	// collision x-axis?
+	for (auto edge : MazeRenderer->edges)
+	{
+		bool collisionX = (min(this->cur.ff + this->PLAYER_SIZE, edge.ss.ff) >= max(this->cur.ff, edge.ff.ff));
+		bool collisionY = (min(this->cur.ss + this->PLAYER_SIZE, edge.ss.ss) >= max(this->cur.ss, edge.ff.ss));
+
+		if (collisionX && collisionY)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+void Player::move(int direction, float dt, Maze *MazeRenderer)
 {
 	if (direction == UP)
 	{
 		this->cur.ss += dt;
+
+		if (CheckCollision(MazeRenderer))
+		{
+			this->cur.ss -= dt;
+		}
 	}
 
 	else if (direction == DOWN)
 	{
 		this->cur.ss -= dt;
+
+		if (CheckCollision(MazeRenderer))
+		{
+			this->cur.ss += dt;
+		}
 	}
 
 	else if (direction == LEFT)
 	{
 		this->cur.ff -= dt;
+
+		if (CheckCollision(MazeRenderer))
+		{
+			this->cur.ff += dt;
+		}
 	}
 
 	else if (direction == RIGHT)
 	{
 		this->cur.ff += dt;
+
+		if (CheckCollision(MazeRenderer))
+		{
+			this->cur.ff -= dt;
+		}
 	}
 }
 

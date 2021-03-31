@@ -634,6 +634,8 @@ CMakeFiles/assignment-1.dir/source/maze.cpp.o: /usr/local/include/glm/vector_rel
 
 CMakeFiles/assignment-1.dir/source/player.cpp.o: ../libraries/glad/include/KHR/khrplatform.h
 CMakeFiles/assignment-1.dir/source/player.cpp.o: ../libraries/glad/include/glad/glad.h
+CMakeFiles/assignment-1.dir/source/player.cpp.o: ../source/game_object.h
+CMakeFiles/assignment-1.dir/source/player.cpp.o: ../source/maze.h
 CMakeFiles/assignment-1.dir/source/player.cpp.o: ../source/player.cpp
 CMakeFiles/assignment-1.dir/source/player.cpp.o: ../source/player.h
 CMakeFiles/assignment-1.dir/source/player.cpp.o: ../source/shader.h

@@ -49,22 +49,22 @@ void Game::ProcessInput(float dt)
 {
 	if (this->Keys[GLFW_KEY_W])
 	{
-		PlayerRenderer->move(UP, dt);
+		PlayerRenderer->move(UP, dt, MazeRenderer);
 	}
 
 	if (this->Keys[GLFW_KEY_S])
 	{
-		PlayerRenderer->move(DOWN, dt);
+		PlayerRenderer->move(DOWN, dt, MazeRenderer);
 	}
 
 	if (this->Keys[GLFW_KEY_A])
 	{
-		PlayerRenderer->move(LEFT, dt);
+		PlayerRenderer->move(LEFT, dt, MazeRenderer);
 	}
 
 	if (this->Keys[GLFW_KEY_D])
 	{
-		PlayerRenderer->move(RIGHT, dt);
+		PlayerRenderer->move(RIGHT, dt, MazeRenderer);
 	}
 }
 
