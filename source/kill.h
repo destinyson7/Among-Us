@@ -32,7 +32,7 @@ public:
 	~KillButton();
 	// Renders a defined quad textured with given sprite
 	void DrawKillButton(Texture2D &texture);
-	// bool CheckCollision(Player *PlayerRenderer);
+	bool CheckCollision(Player *PlayerRenderer);
 
 private:
 	// Render state

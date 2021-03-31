@@ -24,6 +24,7 @@ public:
 	Imposter(Shader &shader);
 
 	const float IMPOSTER_SIZE = 0.1;
+	bool exists = true;
 
 	pff begin;
 	pff cur;

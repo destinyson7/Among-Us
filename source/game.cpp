@@ -90,24 +90,33 @@ void Game::ProcessInput(float dt)
 		PlayerRenderer->move(RIGHT, dt, MazeRenderer);
 	}
 
-	if (this->Keys[GLFW_KEY_UP])
+	if (ImposterRenderer->exists)
 	{
-		ImposterRenderer->move(UP, dt, MazeRenderer);
+		if (this->Keys[GLFW_KEY_UP])
+		{
+			ImposterRenderer->move(UP, dt, MazeRenderer);
+		}
+
+		if (this->Keys[GLFW_KEY_DOWN])
+		{
+			ImposterRenderer->move(DOWN, dt, MazeRenderer);
+		}
+
+		if (this->Keys[GLFW_KEY_LEFT])
+		{
+			ImposterRenderer->move(LEFT, dt, MazeRenderer);
+		}
+
+		if (this->Keys[GLFW_KEY_RIGHT])
+		{
+			ImposterRenderer->move(RIGHT, dt, MazeRenderer);
+		}
 	}
 
-	if (this->Keys[GLFW_KEY_DOWN])
+	if (KillButtonRenderer->CheckCollision(PlayerRenderer))
 	{
-		ImposterRenderer->move(DOWN, dt, MazeRenderer);
-	}
-
-	if (this->Keys[GLFW_KEY_LEFT])
-	{
-		ImposterRenderer->move(LEFT, dt, MazeRenderer);
-	}
-
-	if (this->Keys[GLFW_KEY_RIGHT])
-	{
-		ImposterRenderer->move(RIGHT, dt, MazeRenderer);
+		KillButtonRenderer->exists = false;
+		ImposterRenderer->exists = false;
 	}
 }
 
@@ -118,11 +127,17 @@ void Game::Render()
 	Texture2D playerTexture = ResourceManager::GetTexture("player");
 	PlayerRenderer->DrawPlayer(playerTexture);
 
-	Texture2D imposterTexture = ResourceManager::GetTexture("imposter");
-	ImposterRenderer->DrawImposter(imposterTexture);
+	if (ImposterRenderer->exists)
+	{
+		Texture2D imposterTexture = ResourceManager::GetTexture("imposter");
+		ImposterRenderer->DrawImposter(imposterTexture);
+	}
 
-	Texture2D killButtonTexture = ResourceManager::GetTexture("kill_button");
-	KillButtonRenderer->DrawKillButton(killButtonTexture);
+	if (KillButtonRenderer->exists)
+	{
+		Texture2D killButtonTexture = ResourceManager::GetTexture("kill_button");
+		KillButtonRenderer->DrawKillButton(killButtonTexture);
+	}
 
 	Text->RenderText("Health: " + to_string(PlayerRenderer->health), 170.0f, 25.0f, 1.0f);
 	Text->RenderText("Tasks: " + to_string(PlayerRenderer->tasks_completed) + "/2", 170.0f, 60.0f, 1.0f);

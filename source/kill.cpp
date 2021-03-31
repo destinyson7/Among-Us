@@ -9,6 +9,9 @@ KillButton::KillButton(Shader &shader, Maze *MazeRenderer)
 	int r = rand() % MazeRenderer->MAZE_HEIGHT;
 	int c = rand() % MazeRenderer->MAZE_WIDTH;
 
+	r = max(r - 1, 0);
+	c = max(c - 1, 0);
+
 	this->pos = mp((float)r * this->BUTTON_SIZE + MazeRenderer->translate.x, (float)c * this->BUTTON_SIZE + MazeRenderer->translate.y);
 
 	this->initRenderData();
@@ -45,21 +48,21 @@ void KillButton::DrawKillButton(Texture2D &texture)
 	glBindVertexArray(0);
 }
 
-// bool KillButton::CheckCollision(Player *PlayerRenderer)
-// {
+bool KillButton::CheckCollision(Player *PlayerRenderer)
+{
 
-// 	bool collisionX = (this->cur.ff - MazeRenderer->translate.x + this->PLAYER_SIZE >= edge.ff.ff) && (this->cur.ff - MazeRenderer->translate.x <= edge.ss.ff);
-// 	bool collisionY = (this->cur.ss - MazeRenderer->translate.y + this->PLAYER_SIZE >= edge.ff.ss) && (this->cur.ss - MazeRenderer->translate.y <= edge.ss.ss);
+	bool collisionX = (this->pos.ff + this->BUTTON_SIZE >= PlayerRenderer->cur.ff) && (this->pos.ff <= PlayerRenderer->cur.ff + PlayerRenderer->PLAYER_SIZE);
+	bool collisionY = (this->pos.ss + this->BUTTON_SIZE >= PlayerRenderer->cur.ss) && (this->pos.ss <= PlayerRenderer->cur.ss + PlayerRenderer->PLAYER_SIZE);
 
-// 	if (collisionX && collisionY)
-// 	{
-// 		// cout << "true" << endl;
-// 		return true;
-// 	}
+	if (collisionX && collisionY)
+	{
+		// cout << "true" << endl;
+		return true;
+	}
 
-// 	// cout << "false" << endl;
-// 	return false;
-// }
+	// cout << "false" << endl;
+	return false;
+}
 
 void KillButton::initRenderData()
 {
