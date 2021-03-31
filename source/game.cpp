@@ -2,11 +2,13 @@
 #include "resource_manager.h"
 #include "maze.h"
 #include "player.h"
+#include "text_renderer.h"
 // #include "texture.h"
 
 // Game-related State data
 Maze *MazeRenderer;
 Player *PlayerRenderer;
+TextRenderer *Text;
 
 Game::Game(unsigned int width, unsigned int height)
 	: State(GAME_ACTIVE), Keys(), Width(width), Height(height)
@@ -17,6 +19,7 @@ Game::~Game()
 {
 	delete MazeRenderer;
 	delete PlayerRenderer;
+	delete Text;
 }
 
 void Game::Init()
@@ -39,6 +42,9 @@ void Game::Init()
 
 	Shader playerShader = ResourceManager::GetShader("player");
 	PlayerRenderer = new Player(playerShader);
+
+	Text = new TextRenderer(this->Width, this->Height);
+	Text->Load("../source/fonts/OCRAEXT.TTF", 40);
 }
 
 void Game::Update(float dt)
@@ -74,4 +80,6 @@ void Game::Render()
 
 	Texture2D playerTexture = ResourceManager::GetTexture("player");
 	PlayerRenderer->DrawPlayer(playerTexture);
+
+	Text->RenderText("Press ENTER to start", 170.0f, 130.0f, 1.0f);
 }

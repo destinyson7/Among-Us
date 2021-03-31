@@ -49,3 +49,8 @@ endif()
 # GLEW
 find_package(GLEW REQUIRED)
 target_link_libraries(${PROJECT_NAME} GLEW::GLEW)
+
+#Freetype
+find_package(Freetype REQUIRED)
+target_link_libraries(${PROJECT_NAME} ${FREETYPE_LIBRARIES})
+target_include_directories(${PROJECT_NAME} PRIVATE ${FREETYPE_INCLUDE_DIRS})

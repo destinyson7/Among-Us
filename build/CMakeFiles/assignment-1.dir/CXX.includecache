@@ -34,6 +34,68 @@ stdint.h
 inttypes.h
 -
 
+../libraries/glfw/include/GLFW/glfw3.h
+stddef.h
+-
+stdint.h
+-
+vulkan/vulkan.h
+-
+GLES/gl.h
+-
+GLES/glext.h
+-
+GLES2/gl2.h
+-
+GLES2/gl2ext.h
+-
+GLES3/gl3.h
+-
+GLES2/gl2ext.h
+-
+GLES3/gl31.h
+-
+GLES2/gl2ext.h
+-
+GLES3/gl32.h
+-
+GLES2/gl2ext.h
+-
+OpenGL/gl3.h
+-
+OpenGL/gl3ext.h
+-
+GL/glcorearb.h
+-
+OpenGL/glu.h
+-
+GL/glu.h
+-
+OpenGL/gl.h
+-
+GL/gl.h
+-
+GL/glext.h
+-
+
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/game.cpp
+game.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/game.h
+resource_manager.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/resource_manager.h
+maze.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.h
+player.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/player.h
+text_renderer.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/text_renderer.h
+
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/game.h
+glad/glad.h
+-
+GLFW/glfw3.h
+-
+
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/game_object.h
 glad/glad.h
 -
@@ -54,10 +116,6 @@ game_object.h
 vector
 -
 
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/player.cpp
-player.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/player.h
-
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/player.h
 glad/glad.h
 -
@@ -74,6 +132,18 @@ shader.h
 maze.h
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.h
 
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/resource_manager.h
+glad/glad.h
+-
+map
+-
+string
+-
+shader.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
+texture.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/texture.h
+
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
 string
 -
@@ -83,6 +153,18 @@ glm/glm.hpp
 -
 glm/gtc/type_ptr.hpp
 -
+
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/text_renderer.h
+map
+-
+glad/glad.h
+-
+glm/glm.hpp
+-
+texture.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/texture.h
+shader.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
 
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/texture.h
 glad/glad.h

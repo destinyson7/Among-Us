@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/tanish/Documents/Computer Graphics/assignments/1/source/resource_manager.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/resource_manager.cpp.o"
   "/Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/shader.cpp.o"
   "/Users/tanish/Documents/Computer Graphics/assignments/1/source/stb_image.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/stb_image.cpp.o"
+  "/Users/tanish/Documents/Computer Graphics/assignments/1/source/text_renderer.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/text_renderer.cpp.o"
   "/Users/tanish/Documents/Computer Graphics/assignments/1/source/texture.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/texture.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
@@ -26,6 +27,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../libraries/glfw/include"
   "../libraries/glad/include"
   "../libraries/glm"
+  "/usr/local/include/freetype2"
   "/usr/local/include"
   )
 

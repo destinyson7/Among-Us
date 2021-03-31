@@ -4,8 +4,8 @@ Player::Player(Shader &shader)
 {
 	this->shader = shader;
 	// this->begin = mp(0.025, 0.02);
-	this->begin = mp(0.00f, 0.15f);
-	this->cur = mp(0.00f, 0.15f);
+	this->begin = mp(0.00f, 0.1f);
+	this->cur = mp(0.00f, 0.1f);
 	this->initRenderData();
 }
 
