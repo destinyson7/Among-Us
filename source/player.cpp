@@ -1,3 +1,11 @@
+/*******************************************************************
+** This code is part of Breakout.
+**
+** Breakout is free software: you can redistribute it and/or modify
+** it under the terms of the CC BY 4.0 license as published by
+** Creative Commons, either version 4 of the License, or (at your
+** option) any later version.
+******************************************************************/
 #include "player.h"
 
 Player::Player(Shader &shader)
@@ -22,7 +30,7 @@ void Player::DrawPlayer(Texture2D &texture, glm::vec2 position, glm::vec2 size, 
 	// model = glm::rotate(model, glm::radians(rotate), glm::vec3(0.0f, 0.0f, 1.0f));	// then rotate
 	// model = glm::translate(model, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.0f)); // move origin back
 
-	// model = glm::scale(model, glm::vec3(size, 1.0f)); // last scale
+	model = glm::scale(model, glm::vec3(size, 1.0f)); // last scale
 
 	this->shader.SetMatrix4("model", model);
 
@@ -43,13 +51,13 @@ void Player::initRenderData()
 	unsigned int VBO;
 	float vertices[] = {
 		// pos      // tex
-		10.0f, 10.0f, 0.0f, 1.0f,
-		10.0f, 410.0f, 1.0f, 0.0f,
-		410.0f, 410.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f, 1.0f,
+		1.0f, 0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 0.0f, 0.0f,
 
-		10.0f, 10.0f, 0.0f, 1.0f,
-		410.0f, 410.0f, 0.0f, 0.0f,
-		410.0f, 10.0f, 1.0f, 0.0f};
+		0.0f, 1.0f, 0.0f, 1.0f,
+		1.0f, 1.0f, 1.0f, 1.0f,
+		1.0f, 0.0f, 1.0f, 0.0f};
 
 	glGenVertexArrays(1, &this->quadVAO);
 	glGenBuffers(1, &VBO);

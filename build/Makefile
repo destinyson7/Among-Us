@@ -276,6 +276,33 @@ source/maze.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/maze.cpp.s
 .PHONY : source/maze.cpp.s
 
+source/player.o: source/player.cpp.o
+
+.PHONY : source/player.o
+
+# target to build an object file
+source/player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/player.cpp.o
+.PHONY : source/player.cpp.o
+
+source/player.i: source/player.cpp.i
+
+.PHONY : source/player.i
+
+# target to preprocess a source file
+source/player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/player.cpp.i
+.PHONY : source/player.cpp.i
+
+source/player.s: source/player.cpp.s
+
+.PHONY : source/player.s
+
+# target to generate assembly for a file
+source/player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/player.cpp.s
+.PHONY : source/player.cpp.s
+
 source/resource_manager.o: source/resource_manager.cpp.o
 
 .PHONY : source/resource_manager.o
@@ -330,6 +357,60 @@ source/shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/shader.cpp.s
 .PHONY : source/shader.cpp.s
 
+source/stb_image.o: source/stb_image.cpp.o
+
+.PHONY : source/stb_image.o
+
+# target to build an object file
+source/stb_image.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/stb_image.cpp.o
+.PHONY : source/stb_image.cpp.o
+
+source/stb_image.i: source/stb_image.cpp.i
+
+.PHONY : source/stb_image.i
+
+# target to preprocess a source file
+source/stb_image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/stb_image.cpp.i
+.PHONY : source/stb_image.cpp.i
+
+source/stb_image.s: source/stb_image.cpp.s
+
+.PHONY : source/stb_image.s
+
+# target to generate assembly for a file
+source/stb_image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/stb_image.cpp.s
+.PHONY : source/stb_image.cpp.s
+
+source/texture.o: source/texture.cpp.o
+
+.PHONY : source/texture.o
+
+# target to build an object file
+source/texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/texture.cpp.o
+.PHONY : source/texture.cpp.o
+
+source/texture.i: source/texture.cpp.i
+
+.PHONY : source/texture.i
+
+# target to preprocess a source file
+source/texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/texture.cpp.i
+.PHONY : source/texture.cpp.i
+
+source/texture.s: source/texture.cpp.s
+
+.PHONY : source/texture.s
+
+# target to generate assembly for a file
+source/texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/texture.cpp.s
+.PHONY : source/texture.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -353,12 +434,21 @@ help:
 	@echo "... source/maze.o"
 	@echo "... source/maze.i"
 	@echo "... source/maze.s"
+	@echo "... source/player.o"
+	@echo "... source/player.i"
+	@echo "... source/player.s"
 	@echo "... source/resource_manager.o"
 	@echo "... source/resource_manager.i"
 	@echo "... source/resource_manager.s"
 	@echo "... source/shader.o"
 	@echo "... source/shader.i"
 	@echo "... source/shader.s"
+	@echo "... source/stb_image.o"
+	@echo "... source/stb_image.i"
+	@echo "... source/stb_image.s"
+	@echo "... source/texture.o"
+	@echo "... source/texture.i"
+	@echo "... source/texture.s"
 .PHONY : help
 
 
