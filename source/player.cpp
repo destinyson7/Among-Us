@@ -43,13 +43,13 @@ void Player::initRenderData()
 	unsigned int VBO;
 	float vertices[] = {
 		// pos      // tex
-		200.0f, 200.0f, 0.0f, 1.0f,
-		200.0f, 400.0f, 1.0f, 0.0f,
-		100.0f, 300.0f, 0.0f, 0.0f,
+		10.0f, 10.0f, 0.0f, 1.0f,
+		10.0f, 410.0f, 1.0f, 0.0f,
+		410.0f, 410.0f, 0.0f, 0.0f,
 
-		100.0f, 300.0f, 0.0f, 1.0f,
-		200.0f, 400.0f, 1.0f, 1.0f,
-		100.0f, 200.0f, 1.0f, 0.0f};
+		10.0f, 10.0f, 0.0f, 1.0f,
+		410.0f, 410.0f, 0.0f, 0.0f,
+		410.0f, 10.0f, 1.0f, 0.0f};
 
 	glGenVertexArrays(1, &this->quadVAO);
 	glGenBuffers(1, &VBO);
