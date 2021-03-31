@@ -3,9 +3,8 @@ in vec2 TexCoords;
 out vec4 color;
 
 uniform sampler2D sprite;
-uniform vec3 spriteColor;
 
 void main()
 {
-    color = texture(sprite, TexCoords);
+    color = 0.8 * texture(sprite, TexCoords);
 }

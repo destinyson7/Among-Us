@@ -1,11 +1,3 @@
-/*******************************************************************
-** This code is part of Breakout.
-**
-** Breakout is free software: you can redistribute it and/or modify
-** it under the terms of the CC BY 4.0 license as published by
-** Creative Commons, either version 4 of the License, or (at your
-** option) any later version.
-******************************************************************/
 #ifndef PLAYER_H
 #define PLAYER_H
 
@@ -16,15 +8,27 @@
 #include "texture.h"
 #include "shader.h"
 
+#define mp make_pair
+#define ff first
+#define ss second
+#define pff pair<float, float>
+
+using namespace std;
+
 class Player
 {
 public:
 	// Constructor (inits shaders/shapes)
 	Player(Shader &shader);
+
+	const float PLAYER_SIZE = 0.2;
+
+	pff begin;
+	pff cur;
 	// Destructor
 	~Player();
 	// Renders a defined quad textured with given sprite
-	void DrawPlayer(Texture2D &texture, glm::vec2 position, glm::vec2 size = glm::vec2(10.0f, 10.0f), float rotate = 0.0f, glm::vec3 color = glm::vec3(1.0f));
+	void DrawPlayer(Texture2D &texture);
 
 private:
 	// Render state
