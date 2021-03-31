@@ -81,5 +81,8 @@ void Game::Render()
 	Texture2D playerTexture = ResourceManager::GetTexture("player");
 	PlayerRenderer->DrawPlayer(playerTexture);
 
-	Text->RenderText("Press ENTER to start", 170.0f, 130.0f, 1.0f);
+	Text->RenderText("Health: " + to_string(PlayerRenderer->health), 170.0f, 25.0f, 1.0f);
+	Text->RenderText("Tasks: " + to_string(PlayerRenderer->tasks_completed) + "/2", 170.0f, 60.0f, 1.0f);
+	Text->RenderText("Light: " + MazeRenderer->lighting, 170.0f, 95.0f, 1.0f);
+	Text->RenderText("Time: " + to_string(this->time_remaining), 170.0f, 130.0f, 1.0f);
 }

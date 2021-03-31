@@ -21,6 +21,7 @@ public:
 	// game state
 	GameState State;
 	bool Keys[1024];
+	int time_remaining = 60;
 	unsigned int Width, Height;
 	// constructor/destructor
 	Game(unsigned int width, unsigned int height);

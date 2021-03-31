@@ -32,6 +32,8 @@ public:
 	Player(Shader &shader);
 
 	const float PLAYER_SIZE = 0.1;
+	int health = 100;
+	int tasks_completed = 0;
 
 	pff begin;
 	pff cur;

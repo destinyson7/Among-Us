@@ -29,6 +29,8 @@ public:
 
 	glm::vec3 translate;
 
+	string lighting = "On";
+
 	float EDGE_LENGTH = 0.15f;
 	int n_edges = 0;
 

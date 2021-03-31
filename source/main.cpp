@@ -5,6 +5,7 @@
 #include "resource_manager.h"
 
 #include <iostream>
+using namespace std;
 
 // GLFW function declarations
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
@@ -57,8 +58,19 @@ int main(int argc, char *argv[])
     float deltaTime = 0.0f;
     float lastFrame = 0.0f;
 
+    int time_cnt = 0;
+
     while (!glfwWindowShouldClose(window))
     {
+        time_cnt++;
+
+        if (time_cnt == 60)
+        {
+            time_cnt = 0;
+            AmongUs.time_remaining--;
+
+            AmongUs.time_remaining = max(0, AmongUs.time_remaining);
+        }
         // calculate delta time
         // --------------------
         float currentFrame = glfwGetTime();
