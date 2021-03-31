@@ -4,8 +4,8 @@ Player::Player(Shader &shader)
 {
 	this->shader = shader;
 	// this->begin = mp(0.025, 0.02);
-	this->begin = mp(0.00f, 0.10f);
-	this->cur = mp(0.00f, 0.10f);
+	this->begin = mp(0.00f, 0.15f);
+	this->cur = mp(0.00f, 0.15f);
 	this->initRenderData();
 }
 
@@ -44,15 +44,17 @@ bool Player::CheckCollision(Maze *MazeRenderer)
 {
 	for (auto edge : MazeRenderer->edges)
 	{
-		bool collisionX = (this->cur.ff + this->PLAYER_SIZE >= edge.ff.ff) && (this->cur.ff <= edge.ss.ff);
-		bool collisionY = (this->cur.ss + this->PLAYER_SIZE >= edge.ff.ss) && (this->cur.ss <= edge.ss.ss);
+		bool collisionX = (this->cur.ff - MazeRenderer->translate.x + this->PLAYER_SIZE >= edge.ff.ff) && (this->cur.ff - MazeRenderer->translate.x <= edge.ss.ff);
+		bool collisionY = (this->cur.ss - MazeRenderer->translate.y + this->PLAYER_SIZE >= edge.ff.ss) && (this->cur.ss - MazeRenderer->translate.y <= edge.ss.ss);
 
 		if (collisionX && collisionY)
 		{
+			// cout << "true" << endl;
 			return true;
 		}
 	}
 
+	// cout << "false" << endl;
 	return false;
 }
 

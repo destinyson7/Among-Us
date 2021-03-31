@@ -4,6 +4,7 @@
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <iostream>
 
 #include "texture.h"
 #include "shader.h"
@@ -32,6 +33,7 @@ public:
 
 	const float PLAYER_SIZE = 0.1;
 
+	glm::vec3 translate;
 	pff begin;
 	pff cur;
 	// Destructor

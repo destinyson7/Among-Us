@@ -23,6 +23,7 @@ ostream &operator<<(ostream &os, pair<X, Y> const &p)
 Maze::Maze(Shader &shader)
 {
 	this->shader = shader;
+	this->translate = glm::vec3(-0.75f, -0.55f, 0.0f);
 	this->initRenderData();
 }
 
@@ -37,7 +38,7 @@ void Maze::DrawMaze()
 	this->shader.Use();
 
 	glm::mat4 model = glm::mat4(1.0f);
-	model = glm::translate(model, glm::vec3(-0.75f, -0.55f, 0.0f));
+	model = glm::translate(model, this->translate);
 	this->shader.SetMatrix4("model", model);
 
 	glBindVertexArray(this->quadVAO);

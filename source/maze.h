@@ -26,6 +26,9 @@ class Maze
 public:
 	const static int MAZE_WIDTH = 10;
 	const static int MAZE_HEIGHT = 8;
+
+	glm::vec3 translate;
+
 	float EDGE_LENGTH = 0.15f;
 	int n_edges = 0;
 
