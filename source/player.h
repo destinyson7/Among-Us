@@ -15,6 +15,14 @@
 
 using namespace std;
 
+enum Player_Movement
+{
+	LEFT,
+	RIGHT,
+	UP,
+	DOWN,
+};
+
 class Player
 {
 public:
@@ -29,6 +37,7 @@ public:
 	~Player();
 	// Renders a defined quad textured with given sprite
 	void DrawPlayer(Texture2D &texture);
+	void move(int direction, float dt);
 
 private:
 	// Render state

@@ -47,6 +47,25 @@ void Game::Update(float dt)
 
 void Game::ProcessInput(float dt)
 {
+	if (this->Keys[GLFW_KEY_W])
+	{
+		PlayerRenderer->move(UP, dt);
+	}
+
+	if (this->Keys[GLFW_KEY_S])
+	{
+		PlayerRenderer->move(DOWN, dt);
+	}
+
+	if (this->Keys[GLFW_KEY_A])
+	{
+		PlayerRenderer->move(LEFT, dt);
+	}
+
+	if (this->Keys[GLFW_KEY_D])
+	{
+		PlayerRenderer->move(RIGHT, dt);
+	}
 }
 
 void Game::Render()

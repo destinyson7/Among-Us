@@ -3,8 +3,9 @@
 Player::Player(Shader &shader)
 {
 	this->shader = shader;
-	this->begin = mp(0.025, 0.02);
-	this->cur = mp(0.025, 0.02);
+	// this->begin = mp(0.025, 0.02);
+	this->begin = mp(0.00f, 0.00f);
+	this->cur = mp(0.00f, 0.00f);
 	this->initRenderData();
 }
 
@@ -18,7 +19,7 @@ void Player::DrawPlayer(Texture2D &texture)
 	// prepare transformations
 	this->shader.Use();
 	glm::mat4 model = glm::mat4(1.0f);
-	// model = glm::translate(model, glm::vec3(position, 0.0f)); // first translate (transformations are: scale happens first, then rotation, and then final translation happens; reversed order)
+	model = glm::translate(model, glm::vec3(this->cur.ff, this->cur.ss, 0.0f)); // first translate (transformations are: scale happens first, then rotation, and then final translation happens; reversed order)
 
 	// model = glm::translate(model, glm::vec3(0.5f * size.x, 0.5f * size.y, 0.0f));	// move origin of rotation to center of quad
 	// model = glm::rotate(model, glm::radians(rotate), glm::vec3(0.0f, 0.0f, 1.0f));	// then rotate
@@ -39,16 +40,46 @@ void Player::DrawPlayer(Texture2D &texture)
 	glBindVertexArray(0);
 }
 
+void Player::move(int direction, float dt)
+{
+	if (direction == UP)
+	{
+		this->cur.ss += dt;
+	}
+
+	else if (direction == DOWN)
+	{
+		this->cur.ss -= dt;
+	}
+
+	else if (direction == LEFT)
+	{
+		this->cur.ff -= dt;
+	}
+
+	else if (direction == RIGHT)
+	{
+		this->cur.ff += dt;
+	}
+}
+
 void Player::initRenderData()
 {
 	// configure VAO/VBO
 	unsigned int VBO;
+	// float vertices[] = {
+	// 	// pos      // tex
+	// 	this->begin.ff, this->begin.ss, 0.0f, 1.0f,
+	// 	this->begin.ff + this->PLAYER_SIZE, this->begin.ss, 1.0f, 1.0f,
+	// 	this->begin.ff + this->PLAYER_SIZE, this->begin.ss + this->PLAYER_SIZE, 1.0f, 0.0f,
+	// 	this->begin.ff, this->begin.ss + this->PLAYER_SIZE, 0.0f, 0.0f};
+
 	float vertices[] = {
 		// pos      // tex
-		this->begin.ff, this->begin.ss, 0.0f, 1.0f,
-		this->begin.ff + this->PLAYER_SIZE, this->begin.ss, 1.0f, 1.0f,
-		this->begin.ff + this->PLAYER_SIZE, this->begin.ss + this->PLAYER_SIZE, 1.0f, 0.0f,
-		this->begin.ff, this->begin.ss + this->PLAYER_SIZE, 0.0f, 0.0f};
+		0.0f, 0.0f, 0.0f, 1.0f,
+		0.0f + this->PLAYER_SIZE, 0.0f, 1.0f, 1.0f,
+		0.0f + this->PLAYER_SIZE, 0.0f + this->PLAYER_SIZE, 1.0f, 0.0f,
+		0.0f, 0.0f + this->PLAYER_SIZE, 0.0f, 0.0f};
 
 	glGenVertexArrays(1, &this->quadVAO);
 	glGenBuffers(1, &VBO);
