@@ -17,14 +17,6 @@
 
 using namespace std;
 
-enum Player_Movement
-{
-	LEFT,
-	RIGHT,
-	UP,
-	DOWN,
-};
-
 class Player
 {
 public:

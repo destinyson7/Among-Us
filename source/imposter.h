@@ -1,5 +1,5 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef IMPOSTER_H
+#define IMPOSTER_H
 
 #include <glad/glad.h>
 #include <glm/glm.hpp>
@@ -17,28 +17,20 @@
 
 using namespace std;
 
-enum Player_Movement
-{
-	LEFT,
-	RIGHT,
-	UP,
-	DOWN,
-};
-
-class Player
+class Imposter
 {
 public:
 	// Constructor (inits shaders/shapes)
-	Player(Shader &shader);
+	Imposter(Shader &shader);
 
-	const float PLAYER_SIZE = 0.1;
+	const float IMPOSTER_SIZE = 0.1;
 
 	pff begin;
 	pff cur;
 	// Destructor
-	~Player();
+	~Imposter();
 	// Renders a defined quad textured with given sprite
-	void DrawPlayer(Texture2D &texture);
+	void DrawImposter(Texture2D &texture);
 	void move(int direction, float dt, Maze *MazeRenderer);
 	bool CheckCollision(Maze *MazeRenderer);
 

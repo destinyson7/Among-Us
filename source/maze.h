@@ -21,6 +21,14 @@ typedef pair<float, float> pff;
 
 using namespace std;
 
+enum Player_Movement
+{
+	LEFT,
+	RIGHT,
+	UP,
+	DOWN,
+};
+
 class Maze
 {
 public:

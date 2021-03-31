@@ -3,12 +3,13 @@
 #include "maze.h"
 #include "player.h"
 #include "text_renderer.h"
-// #include "texture.h"
+#include "imposter.h"
 
 // Game-related State data
 Maze *MazeRenderer;
 Player *PlayerRenderer;
 TextRenderer *Text;
+Imposter *ImposterRenderer;
 
 Game::Game(unsigned int width, unsigned int height)
 	: State(GAME_ACTIVE), Keys(), Width(width), Height(height)
@@ -20,6 +21,7 @@ Game::~Game()
 	delete MazeRenderer;
 	delete PlayerRenderer;
 	delete Text;
+	delete ImposterRenderer;
 }
 
 void Game::Init()
@@ -27,6 +29,7 @@ void Game::Init()
 	// load shaders
 	ResourceManager::LoadShader("../source/shaders/maze.vert", "../source/shaders/maze.frag", nullptr, "maze");
 	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "player");
+	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "imposter");
 
 	// configure shaders
 
@@ -39,9 +42,13 @@ void Game::Init()
 
 	// load textures
 	ResourceManager::LoadTexture("../source/textures/among_us.png", true, "player");
+	ResourceManager::LoadTexture("../source/textures/imposter.png", true, "imposter");
 
 	Shader playerShader = ResourceManager::GetShader("player");
 	PlayerRenderer = new Player(playerShader);
+
+	Shader imposterShader = ResourceManager::GetShader("imposter");
+	ImposterRenderer = new Imposter(imposterShader);
 
 	Text = new TextRenderer(this->Width, this->Height);
 	Text->Load("../source/fonts/OCRAEXT.TTF", 40);
@@ -72,6 +79,26 @@ void Game::ProcessInput(float dt)
 	{
 		PlayerRenderer->move(RIGHT, dt, MazeRenderer);
 	}
+
+	if (this->Keys[GLFW_KEY_UP])
+	{
+		ImposterRenderer->move(UP, dt, MazeRenderer);
+	}
+
+	if (this->Keys[GLFW_KEY_DOWN])
+	{
+		ImposterRenderer->move(DOWN, dt, MazeRenderer);
+	}
+
+	if (this->Keys[GLFW_KEY_LEFT])
+	{
+		ImposterRenderer->move(LEFT, dt, MazeRenderer);
+	}
+
+	if (this->Keys[GLFW_KEY_RIGHT])
+	{
+		ImposterRenderer->move(RIGHT, dt, MazeRenderer);
+	}
 }
 
 void Game::Render()
@@ -80,6 +107,9 @@ void Game::Render()
 
 	Texture2D playerTexture = ResourceManager::GetTexture("player");
 	PlayerRenderer->DrawPlayer(playerTexture);
+
+	Texture2D imposterTexture = ResourceManager::GetTexture("imposter");
+	ImposterRenderer->DrawImposter(imposterTexture);
 
 	Text->RenderText("Health: " + to_string(PlayerRenderer->health), 170.0f, 25.0f, 1.0f);
 	Text->RenderText("Tasks: " + to_string(PlayerRenderer->tasks_completed) + "/2", 170.0f, 60.0f, 1.0f);

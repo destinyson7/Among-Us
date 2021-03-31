@@ -222,6 +222,33 @@ source/game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/game.cpp.s
 .PHONY : source/game.cpp.s
 
+source/imposter.o: source/imposter.cpp.o
+
+.PHONY : source/imposter.o
+
+# target to build an object file
+source/imposter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/imposter.cpp.o
+.PHONY : source/imposter.cpp.o
+
+source/imposter.i: source/imposter.cpp.i
+
+.PHONY : source/imposter.i
+
+# target to preprocess a source file
+source/imposter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/imposter.cpp.i
+.PHONY : source/imposter.cpp.i
+
+source/imposter.s: source/imposter.cpp.s
+
+.PHONY : source/imposter.s
+
+# target to generate assembly for a file
+source/imposter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/imposter.cpp.s
+.PHONY : source/imposter.cpp.s
+
 source/main.o: source/main.cpp.o
 
 .PHONY : source/main.o
@@ -455,6 +482,9 @@ help:
 	@echo "... source/game.o"
 	@echo "... source/game.i"
 	@echo "... source/game.s"
+	@echo "... source/imposter.o"
+	@echo "... source/imposter.i"
+	@echo "... source/imposter.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"
