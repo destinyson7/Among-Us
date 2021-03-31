@@ -40,13 +40,12 @@ void Player::DrawPlayer(Texture2D &texture)
 	glBindVertexArray(0);
 }
 
-bool Player::CheckCollision(Maze *MazeRenderer) // AABB - AABB collision
+bool Player::CheckCollision(Maze *MazeRenderer)
 {
-	// collision x-axis?
 	for (auto edge : MazeRenderer->edges)
 	{
-		bool collisionX = (min(this->cur.ff + this->PLAYER_SIZE, edge.ss.ff) >= max(this->cur.ff, edge.ff.ff));
-		bool collisionY = (min(this->cur.ss + this->PLAYER_SIZE, edge.ss.ss) >= max(this->cur.ss, edge.ff.ss));
+		bool collisionX = (this->cur.ff + this->PLAYER_SIZE >= edge.ff.ff) && (this->cur.ff <= edge.ss.ff);
+		bool collisionY = (this->cur.ss + this->PLAYER_SIZE >= edge.ff.ss) && (this->cur.ss <= edge.ss.ss);
 
 		if (collisionX && collisionY)
 		{
