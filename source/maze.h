@@ -8,25 +8,26 @@
 // #include "texture.h"
 #include "shader.h"
 #include "game_object.h"
+#include <vector>
 
 using namespace std;
 
 class Maze
 {
 public:
-	const static int MAZE_WIDTH = 80;
-	const static int MAZE_HEIGHT = 60;
-	float EDGE_LENGTH = 25.0f;
+	const static int MAZE_WIDTH = 10;
+	const static int MAZE_HEIGHT = 8;
+	float EDGE_LENGTH = 0.15f;
 	int n_edges = 0;
 
-	GameObject maze[MAZE_WIDTH][MAZE_HEIGHT];
+	GameObject maze[MAZE_HEIGHT][MAZE_WIDTH];
 	// Constructor (inits shaders/shapes)
 	Maze(Shader &shader);
 	// Destructor
 	~Maze();
 	// Renders a defined quad textured with given sprite
 	void DrawMaze();
-	float *GenerateMaze(int edge_length, pair<int, int> start_position);
+	vector<float> GenerateMaze(float edge_length, pair<int, int> start_position);
 
 private:
 	// Render state

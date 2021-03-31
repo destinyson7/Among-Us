@@ -78,58 +78,30 @@ GL/gl.h
 GL/glext.h
 -
 
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/game.cpp
-game.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/game.h
-resource_manager.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/resource_manager.h
-maze.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.h
-player.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/player.h
-
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/game.h
 glad/glad.h
 -
 GLFW/glfw3.h
 -
 
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/game_object.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/main.cpp
 glad/glad.h
 -
-glm/glm.hpp
+GLFW/glfw3.h
 -
-
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.h
-glad/glad.h
+game.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/game.h
+resource_manager.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/resource_manager.h
+iostream
 -
-glm/glm.hpp
--
-glm/gtc/matrix_transform.hpp
--
-shader.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
-game_object.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/game_object.h
-
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/player.h
-glad/glad.h
--
-glm/glm.hpp
--
-glm/gtc/matrix_transform.hpp
--
-texture.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/texture.h
-shader.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
 
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/resource_manager.h
+glad/glad.h
+-
 map
 -
 string
--
-glad/glad.h
 -
 shader.h
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h

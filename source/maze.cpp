@@ -1,5 +1,30 @@
 #include "maze.h"
 #include <iostream>
+#include <stack>
+#include <vector>
+
+#define ss second
+#define ff first
+#define mp make_pair
+
+typedef pair<int, int> pii;
+
+template <class Ch, class Tr, class Container>
+basic_ostream<Ch, Tr> &operator<<(basic_ostream<Ch, Tr> &os, Container const &x)
+{
+	os << "{ ";
+	for (auto &y : x)
+	{
+		os << y << " ";
+	}
+	return os << "}";
+}
+
+template <class X, class Y>
+ostream &operator<<(ostream &os, pair<X, Y> const &p)
+{
+	return os << "[" << p.ff << ", " << p.ss << "]";
+}
 
 Maze::Maze(Shader &shader)
 {
@@ -18,145 +43,177 @@ void Maze::DrawMaze()
 	this->shader.Use();
 
 	glm::mat4 model = glm::mat4(1.0f);
-	// model = glm::translate(model, glm::vec3(5.0f, 0.0f, 0.0f));
+	model = glm::translate(model, glm::vec3(-0.75f, -0.55f, 0.0f));
 	this->shader.SetMatrix4("model", model);
 
 	glBindVertexArray(this->quadVAO);
-	glDrawArrays(GL_LINES, 0, this->n_edges * 2);
+	glDrawArrays(GL_LINES, 0, this->n_edges);
 	glBindVertexArray(0);
 }
 
-float *Maze::GenerateMaze(int edge_length, pair<int, int> start_position)
+vector<float> Maze::GenerateMaze(float edge_length, pair<int, int> start_position)
 {
 	// GameObject maze[this->MAZE_WIDTH][this->MAZE_HEIGHT];
 
-	for (int i = 0; i < this->MAZE_WIDTH; i++)
+	for (int i = 0; i < this->MAZE_HEIGHT; i++)
 	{
-		for (int j = 0; j < this->MAZE_HEIGHT; j++)
+		for (int j = 0; j < this->MAZE_WIDTH; j++)
 		{
-			this->maze[i][j].bottom_left = {(float)(i * edge_length), (float)(j * edge_length)};
-			this->maze[i][j].top_left = {(float)(i * edge_length), (float)((j + 1) * edge_length)};
-			this->maze[i][j].bottom_right = {(float)((i + 1) * edge_length), (float)(j * edge_length)};
-			this->maze[i][j].top_right = {(float)((i + 1) * edge_length), (float)((j + 1) * edge_length)};
+			this->maze[i][j].bottom_left = {(float)(j * edge_length), (float)(i * edge_length)};
+			this->maze[i][j].top_left = {(float)(j * edge_length), (float)((i + 1) * edge_length)};
+			this->maze[i][j].bottom_right = {(float)((j + 1) * edge_length), (float)(i * edge_length)};
+			this->maze[i][j].top_right = {(float)((j + 1) * edge_length), (float)((i + 1) * edge_length)};
+
+			// cout << edge_length << endl;
+			// cout << mp((float)((j + 1) * edge_length), (float)((i + 1) * edge_length)) << endl;
 		}
 	}
 
-	// cout << "REACHED HERE" << endl;
+	// cout << this->maze << endl;
 
-	// maze[0][0].IS_BOTTOM_OPEN = true;
+	stack<pii> s;
+	s.push(mp(0, 0));
 
-	this->n_edges = this->MAZE_WIDTH * this->MAZE_HEIGHT * 4;
-
-	int r = start_position.first, c = start_position.second;
-
-	int tmp_cnt = 0;
-
-	while (true)
+	while (!s.empty())
 	{
-		// cout << "***" << endl;
-		this->maze[r][c].visited = true;
+		pii top = s.top();
+		s.pop();
 
-		cout << r << " " << c << endl;
+		bool check = false;
 
-		int where = rand() % 4;
-
-		if (where == 0 && c + 1 < this->MAZE_WIDTH && !((this->maze[r][c + 1]).visited))
+		if (top.ff + 1 < this->MAZE_HEIGHT && !((this->maze[top.ff + 1][top.ss]).visited))
 		{
-			this->maze[r][c].IS_TOP_OPEN = 1;
-			this->maze[r][c + 1].IS_BOTTOM_OPEN = 1;
-			this->n_edges -= 2;
-			c++;
+			check = true;
 		}
 
-		else if (where == 1 && c - 1 >= 0 && !((this->maze[r][c - 1]).visited))
+		if (top.ff - 1 >= 0 && !((this->maze[top.ff - 1][top.ss]).visited))
 		{
-			this->maze[r][c].IS_BOTTOM_OPEN = 1;
-			this->maze[r][c - 1].IS_TOP_OPEN = 1;
-			this->n_edges -= 2;
-			c--;
+			check = true;
 		}
 
-		else if (where == 2 && r + 1 < this->MAZE_HEIGHT && !((this->maze[r + 1][c]).visited))
+		if (top.ss + 1 < this->MAZE_WIDTH && !((this->maze[top.ff][top.ss + 1]).visited))
 		{
-			this->maze[r][c].IS_RIGHT_OPEN = 1;
-			this->maze[r + 1][c].IS_LEFT_OPEN = 1;
-			this->n_edges -= 2;
-			r++;
+			check = true;
 		}
 
-		else if (where == 3 && r - 1 >= 0 && !((this->maze[r - 1][c]).visited))
+		if (top.ss - 1 >= 0 && !((this->maze[top.ff][top.ss - 1]).visited))
 		{
-			this->maze[r][c].IS_LEFT_OPEN = 1;
-			this->maze[r - 1][c].IS_RIGHT_OPEN = 1;
-			this->n_edges -= 2;
-			r--;
+			check = true;
 		}
 
-		else
+		if (!check)
 		{
-			tmp_cnt++;
+			continue;
+		}
 
-			if (tmp_cnt == 500)
+		s.push(top);
+
+		while (true)
+		{
+			int where = rand() % 4;
+			int r = top.ff, c = top.ss;
+
+			if (where == 0 && c + 1 < this->MAZE_WIDTH && !((this->maze[r][c + 1]).visited))
 			{
+				s.push(mp(r, c + 1));
+				this->maze[r][c + 1].visited = true;
+
+				this->maze[r][c].IS_RIGHT_OPEN = 1;
+				this->maze[r][c + 1].IS_LEFT_OPEN = 1;
+
+				break;
+			}
+
+			if (where == 1 && c - 1 >= 0 && !((this->maze[r][c - 1]).visited))
+			{
+				s.push(mp(r, c - 1));
+				this->maze[r][c - 1].visited = true;
+
+				this->maze[r][c].IS_LEFT_OPEN = 1;
+				this->maze[r][c - 1].IS_RIGHT_OPEN = 1;
+
+				break;
+			}
+
+			if (where == 2 && r + 1 < this->MAZE_HEIGHT && !((this->maze[r + 1][c]).visited))
+			{
+				s.push(mp(r + 1, c));
+				this->maze[r + 1][c].visited = true;
+
+				this->maze[r][c].IS_TOP_OPEN = 1;
+				this->maze[r + 1][c].IS_BOTTOM_OPEN = 1;
+
+				break;
+			}
+
+			if (where == 3 && r - 1 >= 0 && !((this->maze[r - 1][c]).visited))
+			{
+				s.push(mp(r - 1, c));
+				this->maze[r - 1][c].visited = true;
+
+				this->maze[r][c].IS_BOTTOM_OPEN = 1;
+				this->maze[r - 1][c].IS_TOP_OPEN = 1;
+
 				break;
 			}
 		}
 	}
 
-	cout << "** " << this->n_edges << endl;
+	// cout << "** " << this->n_edges << endl;
 
-	float *vertices = new float[this->n_edges * 4];
-	int ind = 0;
+	vector<float> vertices_vec;
 
-	for (int i = 0; i < this->MAZE_WIDTH; i++)
+	// int ind = 0;
+
+	for (int i = 0; i < this->MAZE_HEIGHT; i++)
 	{
-		for (int j = 0; j < this->MAZE_HEIGHT; j++)
+		for (int j = 0; j < this->MAZE_WIDTH; j++)
 		{
 			// cout << "****" << endl;
 
 			if (!((this->maze[i][j]).IS_BOTTOM_OPEN))
 			{
-				vertices[ind++] = (this->maze[i][j]).bottom_left.first;
-				vertices[ind++] = (this->maze[i][j]).bottom_left.second;
+				vertices_vec.push_back((this->maze[i][j]).bottom_left.first);
+				vertices_vec.push_back((this->maze[i][j]).bottom_left.second);
 
-				vertices[ind++] = (this->maze[i][j]).bottom_right.first;
-				vertices[ind++] = (this->maze[i][j]).bottom_right.second;
+				vertices_vec.push_back((this->maze[i][j]).bottom_right.first);
+				vertices_vec.push_back((this->maze[i][j]).bottom_right.second);
 			}
 
 			if (!((this->maze[i][j]).IS_TOP_OPEN))
 			{
-				vertices[ind++] = (this->maze[i][j]).top_left.first;
-				vertices[ind++] = (this->maze[i][j]).top_left.second;
+				vertices_vec.push_back((this->maze[i][j]).top_left.first);
+				vertices_vec.push_back((this->maze[i][j]).top_left.second);
 
-				vertices[ind++] = (this->maze[i][j]).top_right.first;
-				vertices[ind++] = (this->maze[i][j]).top_right.second;
+				vertices_vec.push_back((this->maze[i][j]).top_right.first);
+				vertices_vec.push_back((this->maze[i][j]).top_right.second);
 			}
 
 			if (!((this->maze[i][j]).IS_LEFT_OPEN))
 			{
-				vertices[ind++] = (this->maze[i][j]).bottom_left.first;
-				vertices[ind++] = (this->maze[i][j]).bottom_left.second;
+				vertices_vec.push_back((this->maze[i][j]).bottom_left.first);
+				vertices_vec.push_back((this->maze[i][j]).bottom_left.second);
 
-				vertices[ind++] = (this->maze[i][j]).top_left.first;
-				vertices[ind++] = (this->maze[i][j]).top_left.second;
+				vertices_vec.push_back((this->maze[i][j]).top_left.first);
+				vertices_vec.push_back((this->maze[i][j]).top_left.second);
 			}
 
 			if (!((this->maze[i][j]).IS_RIGHT_OPEN))
 			{
-				vertices[ind++] = (this->maze[i][j]).top_right.first;
-				vertices[ind++] = (this->maze[i][j]).top_right.second;
+				vertices_vec.push_back((this->maze[i][j]).bottom_right.first);
+				vertices_vec.push_back((this->maze[i][j]).bottom_right.second);
 
-				vertices[ind++] = (this->maze[i][j]).bottom_right.first;
-				vertices[ind++] = (this->maze[i][j]).bottom_right.second;
+				vertices_vec.push_back((this->maze[i][j]).top_right.first);
+				vertices_vec.push_back((this->maze[i][j]).top_right.second);
 			}
 		}
 	}
 
-	cout << this->n_edges << " " << ind << endl;
+	// cout << this->n_edges << " " << ind << endl;
 
 	// assert(ind == n_vertices * 4);
 
-	return vertices;
+	return vertices_vec;
 }
 
 void Maze::initRenderData()
@@ -173,13 +230,26 @@ void Maze::initRenderData()
 	// 	1.0f, 1.0f, 1.0f, 1.0f,
 	// 	1.0f, 0.0f, 1.0f, 0.0f};
 
-	float *vertices = GenerateMaze(this->EDGE_LENGTH, {0, 0});
+	vector<float> vertices_vec = GenerateMaze(this->EDGE_LENGTH, {0, 0});
+
+	int len_vertices = vertices_vec.size();
+
+	this->n_edges = len_vertices;
+	// cout << vertices_vec << endl;
+	float vertices[len_vertices];
+
+	cout << "len " << len_vertices << endl;
+
+	for (int i = 0; i < len_vertices; i++)
+	{
+		vertices[i] = vertices_vec[i];
+	}
 
 	glGenVertexArrays(1, &this->quadVAO);
 	glGenBuffers(1, &VBO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, n_edges * 4 * sizeof(float), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 	glBindVertexArray(this->quadVAO);
 	glEnableVertexAttribArray(0);

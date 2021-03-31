@@ -1,8 +1,8 @@
 #include "resource_manager.h"
 
+#include <fstream>
 #include <iostream>
 #include <sstream>
-#include <fstream>
 
 #include "stb_image.h"
 
