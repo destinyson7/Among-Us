@@ -4,16 +4,15 @@
 #include "player.h"
 #include "text_renderer.h"
 #include "imposter.h"
-#include "kill.h"
-#include "activate.h"
+#include "button.h"
 
 // Game-related State data
 Maze *MazeRenderer;
 Player *PlayerRenderer;
 TextRenderer *Text;
 Imposter *ImposterRenderer;
-KillButton *KillButtonRenderer;
-Activate *ActivateButtonRenderer;
+Button *KillButtonRenderer;
+Button *ActivateButtonRenderer;
 
 Game::Game(unsigned int width, unsigned int height)
 	: State(GAME_ACTIVE), Keys(), Width(width), Height(height)
@@ -36,16 +35,14 @@ void Game::Init()
 	ResourceManager::LoadShader("../source/shaders/maze.vert", "../source/shaders/maze.frag", nullptr, "maze");
 	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "player");
 	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "imposter");
-	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "kill_button");
-	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "activate_button");
+	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "button");
 
 	// configure shaders
 
 	ResourceManager::GetShader("maze").Use().SetInteger("image", 0);
 	ResourceManager::GetShader("player").Use().SetInteger("image", 0);
 	ResourceManager::GetShader("imposter").Use().SetInteger("image", 0);
-	ResourceManager::GetShader("kill_button").Use().SetInteger("image", 0);
-	ResourceManager::GetShader("activate_button").Use().SetInteger("image", 0);
+	ResourceManager::GetShader("button").Use().SetInteger("image", 0);
 
 	// set render-specific controls
 	Shader mazeShader = ResourceManager::GetShader("maze");
@@ -63,11 +60,11 @@ void Game::Init()
 	Shader imposterShader = ResourceManager::GetShader("imposter");
 	ImposterRenderer = new Imposter(imposterShader);
 
-	Shader killButtonShader = ResourceManager::GetShader("kill_button");
-	KillButtonRenderer = new KillButton(killButtonShader, MazeRenderer);
+	Shader killButtonShader = ResourceManager::GetShader("button");
+	KillButtonRenderer = new Button(killButtonShader, MazeRenderer);
 
-	Shader activateButtonShader = ResourceManager::GetShader("activate_button");
-	ActivateButtonRenderer = new Activate(activateButtonShader, MazeRenderer);
+	Shader activateButtonShader = ResourceManager::GetShader("button");
+	ActivateButtonRenderer = new Button(activateButtonShader, MazeRenderer);
 
 	Text = new TextRenderer(this->Width, this->Height);
 	Text->Load("../source/fonts/OCRAEXT.TTF", 40);
@@ -150,13 +147,13 @@ void Game::Render()
 	if (KillButtonRenderer->exists)
 	{
 		Texture2D killButtonTexture = ResourceManager::GetTexture("kill_button");
-		KillButtonRenderer->DrawKillButton(killButtonTexture);
+		KillButtonRenderer->DrawButton(killButtonTexture);
 	}
 
 	if (ActivateButtonRenderer->exists)
 	{
 		Texture2D activateButtonTexture = ResourceManager::GetTexture("activate_button");
-		ActivateButtonRenderer->DrawActivateButton(activateButtonTexture);
+		ActivateButtonRenderer->DrawButton(activateButtonTexture);
 	}
 
 	Text->RenderText("Health: " + to_string(PlayerRenderer->health), 170.0f, 25.0f, 1.0f);

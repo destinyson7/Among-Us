@@ -195,32 +195,32 @@ libraries/glad/src/glad.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/libraries/glad/src/glad.c.s
 .PHONY : libraries/glad/src/glad.c.s
 
-source/activate.o: source/activate.cpp.o
+source/button.o: source/button.cpp.o
 
-.PHONY : source/activate.o
+.PHONY : source/button.o
 
 # target to build an object file
-source/activate.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/activate.cpp.o
-.PHONY : source/activate.cpp.o
+source/button.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/button.cpp.o
+.PHONY : source/button.cpp.o
 
-source/activate.i: source/activate.cpp.i
+source/button.i: source/button.cpp.i
 
-.PHONY : source/activate.i
+.PHONY : source/button.i
 
 # target to preprocess a source file
-source/activate.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/activate.cpp.i
-.PHONY : source/activate.cpp.i
+source/button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/button.cpp.i
+.PHONY : source/button.cpp.i
 
-source/activate.s: source/activate.cpp.s
+source/button.s: source/button.cpp.s
 
-.PHONY : source/activate.s
+.PHONY : source/button.s
 
 # target to generate assembly for a file
-source/activate.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/activate.cpp.s
-.PHONY : source/activate.cpp.s
+source/button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/button.cpp.s
+.PHONY : source/button.cpp.s
 
 source/game.o: source/game.cpp.o
 
@@ -275,33 +275,6 @@ source/imposter.s: source/imposter.cpp.s
 source/imposter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/imposter.cpp.s
 .PHONY : source/imposter.cpp.s
-
-source/kill.o: source/kill.cpp.o
-
-.PHONY : source/kill.o
-
-# target to build an object file
-source/kill.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/kill.cpp.o
-.PHONY : source/kill.cpp.o
-
-source/kill.i: source/kill.cpp.i
-
-.PHONY : source/kill.i
-
-# target to preprocess a source file
-source/kill.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/kill.cpp.i
-.PHONY : source/kill.cpp.i
-
-source/kill.s: source/kill.cpp.s
-
-.PHONY : source/kill.s
-
-# target to generate assembly for a file
-source/kill.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/kill.cpp.s
-.PHONY : source/kill.cpp.s
 
 source/main.o: source/main.cpp.o
 
@@ -533,18 +506,15 @@ help:
 	@echo "... libraries/glad/src/glad.o"
 	@echo "... libraries/glad/src/glad.i"
 	@echo "... libraries/glad/src/glad.s"
-	@echo "... source/activate.o"
-	@echo "... source/activate.i"
-	@echo "... source/activate.s"
+	@echo "... source/button.o"
+	@echo "... source/button.i"
+	@echo "... source/button.s"
 	@echo "... source/game.o"
 	@echo "... source/game.i"
 	@echo "... source/game.s"
 	@echo "... source/imposter.o"
 	@echo "... source/imposter.i"
 	@echo "... source/imposter.s"
-	@echo "... source/kill.o"
-	@echo "... source/kill.i"
-	@echo "... source/kill.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"

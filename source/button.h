@@ -1,5 +1,5 @@
-#ifndef ACTIVATE_H
-#define ACTIVATE_H
+#ifndef BUTTON_H
+#define BUTTON_H
 
 #include <glad/glad.h>
 #include <glm/glm.hpp>
@@ -18,20 +18,20 @@
 
 using namespace std;
 
-class Activate
+class Button
 {
 public:
 	// Constructor (inits shaders/shapes)
-	Activate(Shader &shader, Maze *MazeRenderer);
+	Button(Shader &shader, Maze *MazeRenderer);
 
 	float BUTTON_SIZE;
 	bool exists = true;
 	pff pos;
 
 	// Destructor
-	~Activate();
+	~Button();
 	// Renders a defined quad textured with given sprite
-	void DrawActivateButton(Texture2D &texture);
+	void DrawButton(Texture2D &texture);
 	bool CheckCollision(Player *PlayerRenderer);
 
 private:

@@ -1,28 +1,28 @@
-#include "activate.h"
+#include "button.h"
 
-Activate::Activate(Shader &shader, Maze *MazeRenderer)
+Button::Button(Shader &shader, Maze *MazeRenderer)
 {
 	this->shader = shader;
 
 	this->BUTTON_SIZE = (MazeRenderer->EDGE_LENGTH);
 
-	int r = rand() % MazeRenderer->MAZE_HEIGHT;
-	int c = rand() % MazeRenderer->MAZE_WIDTH;
+	int c = rand() % MazeRenderer->MAZE_HEIGHT;
+	int r = rand() % MazeRenderer->MAZE_WIDTH;
 
-	r = max(r - 1, 0);
-	c = max(c - 1, 0);
+	// r = max(r - 1, 0);
+	// c = max(c - 1, 0);
 
 	this->pos = mp((float)r * this->BUTTON_SIZE + MazeRenderer->translate.x, (float)c * this->BUTTON_SIZE + MazeRenderer->translate.y);
 
 	this->initRenderData();
 }
 
-Activate::~Activate()
+Button::~Button()
 {
 	glDeleteVertexArrays(1, &this->quadVAO);
 }
 
-void Activate::DrawActivateButton(Texture2D &texture)
+void Button::DrawButton(Texture2D &texture)
 {
 	// prepare transformations
 	this->shader.Use();
@@ -48,7 +48,7 @@ void Activate::DrawActivateButton(Texture2D &texture)
 	glBindVertexArray(0);
 }
 
-bool Activate::CheckCollision(Player *PlayerRenderer)
+bool Button::CheckCollision(Player *PlayerRenderer)
 {
 
 	bool collisionX = (this->pos.ff + this->BUTTON_SIZE >= PlayerRenderer->cur.ff) && (this->pos.ff <= PlayerRenderer->cur.ff + PlayerRenderer->PLAYER_SIZE);
@@ -64,7 +64,7 @@ bool Activate::CheckCollision(Player *PlayerRenderer)
 	return false;
 }
 
-void Activate::initRenderData()
+void Button::initRenderData()
 {
 	// configure VAO/VBO
 	unsigned int VBO;
