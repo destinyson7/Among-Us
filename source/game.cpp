@@ -4,12 +4,14 @@
 #include "player.h"
 #include "text_renderer.h"
 #include "imposter.h"
+#include "kill.h"
 
 // Game-related State data
 Maze *MazeRenderer;
 Player *PlayerRenderer;
 TextRenderer *Text;
 Imposter *ImposterRenderer;
+KillButton *KillButtonRenderer;
 
 Game::Game(unsigned int width, unsigned int height)
 	: State(GAME_ACTIVE), Keys(), Width(width), Height(height)
@@ -22,6 +24,7 @@ Game::~Game()
 	delete PlayerRenderer;
 	delete Text;
 	delete ImposterRenderer;
+	delete KillButtonRenderer;
 }
 
 void Game::Init()
@@ -30,11 +33,14 @@ void Game::Init()
 	ResourceManager::LoadShader("../source/shaders/maze.vert", "../source/shaders/maze.frag", nullptr, "maze");
 	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "player");
 	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "imposter");
+	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "kill_button");
 
 	// configure shaders
 
 	ResourceManager::GetShader("maze").Use().SetInteger("image", 0);
 	ResourceManager::GetShader("player").Use().SetInteger("image", 0);
+	ResourceManager::GetShader("imposter").Use().SetInteger("image", 0);
+	ResourceManager::GetShader("kill_button").Use().SetInteger("image", 0);
 
 	// set render-specific controls
 	Shader mazeShader = ResourceManager::GetShader("maze");
@@ -43,12 +49,16 @@ void Game::Init()
 	// load textures
 	ResourceManager::LoadTexture("../source/textures/among_us.png", true, "player");
 	ResourceManager::LoadTexture("../source/textures/imposter.png", true, "imposter");
+	ResourceManager::LoadTexture("../source/textures/kill.png", true, "kill_button");
 
 	Shader playerShader = ResourceManager::GetShader("player");
 	PlayerRenderer = new Player(playerShader);
 
 	Shader imposterShader = ResourceManager::GetShader("imposter");
 	ImposterRenderer = new Imposter(imposterShader);
+
+	Shader killButtonShader = ResourceManager::GetShader("kill_button");
+	KillButtonRenderer = new KillButton(killButtonShader, MazeRenderer);
 
 	Text = new TextRenderer(this->Width, this->Height);
 	Text->Load("../source/fonts/OCRAEXT.TTF", 40);
@@ -110,6 +120,9 @@ void Game::Render()
 
 	Texture2D imposterTexture = ResourceManager::GetTexture("imposter");
 	ImposterRenderer->DrawImposter(imposterTexture);
+
+	Texture2D killButtonTexture = ResourceManager::GetTexture("kill_button");
+	KillButtonRenderer->DrawKillButton(killButtonTexture);
 
 	Text->RenderText("Health: " + to_string(PlayerRenderer->health), 170.0f, 25.0f, 1.0f);
 	Text->RenderText("Tasks: " + to_string(PlayerRenderer->tasks_completed) + "/2", 170.0f, 60.0f, 1.0f);

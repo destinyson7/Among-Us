@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/tanish/Documents/Computer Graphics/assignments/1/source/game.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/game.cpp.o"
   "/Users/tanish/Documents/Computer Graphics/assignments/1/source/imposter.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/imposter.cpp.o"
+  "/Users/tanish/Documents/Computer Graphics/assignments/1/source/kill.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/kill.cpp.o"
   "/Users/tanish/Documents/Computer Graphics/assignments/1/source/main.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/main.cpp.o"
   "/Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/maze.cpp.o"
   "/Users/tanish/Documents/Computer Graphics/assignments/1/source/player.cpp" "/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles/assignment-1.dir/source/player.cpp.o"

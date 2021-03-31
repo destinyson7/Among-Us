@@ -249,6 +249,33 @@ source/imposter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/imposter.cpp.s
 .PHONY : source/imposter.cpp.s
 
+source/kill.o: source/kill.cpp.o
+
+.PHONY : source/kill.o
+
+# target to build an object file
+source/kill.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/kill.cpp.o
+.PHONY : source/kill.cpp.o
+
+source/kill.i: source/kill.cpp.i
+
+.PHONY : source/kill.i
+
+# target to preprocess a source file
+source/kill.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/kill.cpp.i
+.PHONY : source/kill.cpp.i
+
+source/kill.s: source/kill.cpp.s
+
+.PHONY : source/kill.s
+
+# target to generate assembly for a file
+source/kill.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/kill.cpp.s
+.PHONY : source/kill.cpp.s
+
 source/main.o: source/main.cpp.o
 
 .PHONY : source/main.o
@@ -485,6 +512,9 @@ help:
 	@echo "... source/imposter.o"
 	@echo "... source/imposter.i"
 	@echo "... source/imposter.s"
+	@echo "... source/kill.o"
+	@echo "... source/kill.i"
+	@echo "... source/kill.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"

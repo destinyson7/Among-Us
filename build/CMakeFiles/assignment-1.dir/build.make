@@ -102,9 +102,22 @@ CMakeFiles/assignment-1.dir/source/imposter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/assignment-1.dir/source/imposter.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/tanish/Documents/Computer Graphics/assignments/1/source/imposter.cpp" -o CMakeFiles/assignment-1.dir/source/imposter.cpp.s
 
+CMakeFiles/assignment-1.dir/source/kill.cpp.o: CMakeFiles/assignment-1.dir/flags.make
+CMakeFiles/assignment-1.dir/source/kill.cpp.o: ../source/kill.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/assignment-1.dir/source/kill.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/assignment-1.dir/source/kill.cpp.o -c "/Users/tanish/Documents/Computer Graphics/assignments/1/source/kill.cpp"
+
+CMakeFiles/assignment-1.dir/source/kill.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/assignment-1.dir/source/kill.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/tanish/Documents/Computer Graphics/assignments/1/source/kill.cpp" > CMakeFiles/assignment-1.dir/source/kill.cpp.i
+
+CMakeFiles/assignment-1.dir/source/kill.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/assignment-1.dir/source/kill.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/tanish/Documents/Computer Graphics/assignments/1/source/kill.cpp" -o CMakeFiles/assignment-1.dir/source/kill.cpp.s
+
 CMakeFiles/assignment-1.dir/source/main.cpp.o: CMakeFiles/assignment-1.dir/flags.make
 CMakeFiles/assignment-1.dir/source/main.cpp.o: ../source/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/assignment-1.dir/source/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/assignment-1.dir/source/main.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/assignment-1.dir/source/main.cpp.o -c "/Users/tanish/Documents/Computer Graphics/assignments/1/source/main.cpp"
 
 CMakeFiles/assignment-1.dir/source/main.cpp.i: cmake_force
@@ -117,7 +130,7 @@ CMakeFiles/assignment-1.dir/source/main.cpp.s: cmake_force
 
 CMakeFiles/assignment-1.dir/source/maze.cpp.o: CMakeFiles/assignment-1.dir/flags.make
 CMakeFiles/assignment-1.dir/source/maze.cpp.o: ../source/maze.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/assignment-1.dir/source/maze.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/assignment-1.dir/source/maze.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/assignment-1.dir/source/maze.cpp.o -c "/Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.cpp"
 
 CMakeFiles/assignment-1.dir/source/maze.cpp.i: cmake_force
@@ -130,7 +143,7 @@ CMakeFiles/assignment-1.dir/source/maze.cpp.s: cmake_force
 
 CMakeFiles/assignment-1.dir/source/player.cpp.o: CMakeFiles/assignment-1.dir/flags.make
 CMakeFiles/assignment-1.dir/source/player.cpp.o: ../source/player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/assignment-1.dir/source/player.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/assignment-1.dir/source/player.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/assignment-1.dir/source/player.cpp.o -c "/Users/tanish/Documents/Computer Graphics/assignments/1/source/player.cpp"
 
 CMakeFiles/assignment-1.dir/source/player.cpp.i: cmake_force
@@ -143,7 +156,7 @@ CMakeFiles/assignment-1.dir/source/player.cpp.s: cmake_force
 
 CMakeFiles/assignment-1.dir/source/resource_manager.cpp.o: CMakeFiles/assignment-1.dir/flags.make
 CMakeFiles/assignment-1.dir/source/resource_manager.cpp.o: ../source/resource_manager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/assignment-1.dir/source/resource_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/assignment-1.dir/source/resource_manager.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/assignment-1.dir/source/resource_manager.cpp.o -c "/Users/tanish/Documents/Computer Graphics/assignments/1/source/resource_manager.cpp"
 
 CMakeFiles/assignment-1.dir/source/resource_manager.cpp.i: cmake_force
@@ -156,7 +169,7 @@ CMakeFiles/assignment-1.dir/source/resource_manager.cpp.s: cmake_force
 
 CMakeFiles/assignment-1.dir/source/shader.cpp.o: CMakeFiles/assignment-1.dir/flags.make
 CMakeFiles/assignment-1.dir/source/shader.cpp.o: ../source/shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/assignment-1.dir/source/shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/assignment-1.dir/source/shader.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/assignment-1.dir/source/shader.cpp.o -c "/Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.cpp"
 
 CMakeFiles/assignment-1.dir/source/shader.cpp.i: cmake_force
@@ -169,7 +182,7 @@ CMakeFiles/assignment-1.dir/source/shader.cpp.s: cmake_force
 
 CMakeFiles/assignment-1.dir/source/stb_image.cpp.o: CMakeFiles/assignment-1.dir/flags.make
 CMakeFiles/assignment-1.dir/source/stb_image.cpp.o: ../source/stb_image.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/assignment-1.dir/source/stb_image.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/assignment-1.dir/source/stb_image.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/assignment-1.dir/source/stb_image.cpp.o -c "/Users/tanish/Documents/Computer Graphics/assignments/1/source/stb_image.cpp"
 
 CMakeFiles/assignment-1.dir/source/stb_image.cpp.i: cmake_force
@@ -182,7 +195,7 @@ CMakeFiles/assignment-1.dir/source/stb_image.cpp.s: cmake_force
 
 CMakeFiles/assignment-1.dir/source/text_renderer.cpp.o: CMakeFiles/assignment-1.dir/flags.make
 CMakeFiles/assignment-1.dir/source/text_renderer.cpp.o: ../source/text_renderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/assignment-1.dir/source/text_renderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/assignment-1.dir/source/text_renderer.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/assignment-1.dir/source/text_renderer.cpp.o -c "/Users/tanish/Documents/Computer Graphics/assignments/1/source/text_renderer.cpp"
 
 CMakeFiles/assignment-1.dir/source/text_renderer.cpp.i: cmake_force
@@ -195,7 +208,7 @@ CMakeFiles/assignment-1.dir/source/text_renderer.cpp.s: cmake_force
 
 CMakeFiles/assignment-1.dir/source/texture.cpp.o: CMakeFiles/assignment-1.dir/flags.make
 CMakeFiles/assignment-1.dir/source/texture.cpp.o: ../source/texture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/assignment-1.dir/source/texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/assignment-1.dir/source/texture.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/assignment-1.dir/source/texture.cpp.o -c "/Users/tanish/Documents/Computer Graphics/assignments/1/source/texture.cpp"
 
 CMakeFiles/assignment-1.dir/source/texture.cpp.i: cmake_force
@@ -210,6 +223,7 @@ CMakeFiles/assignment-1.dir/source/texture.cpp.s: cmake_force
 assignment__1_OBJECTS = \
 "CMakeFiles/assignment-1.dir/source/game.cpp.o" \
 "CMakeFiles/assignment-1.dir/source/imposter.cpp.o" \
+"CMakeFiles/assignment-1.dir/source/kill.cpp.o" \
 "CMakeFiles/assignment-1.dir/source/main.cpp.o" \
 "CMakeFiles/assignment-1.dir/source/maze.cpp.o" \
 "CMakeFiles/assignment-1.dir/source/player.cpp.o" \
@@ -224,6 +238,7 @@ assignment__1_EXTERNAL_OBJECTS =
 
 assignment-1: CMakeFiles/assignment-1.dir/source/game.cpp.o
 assignment-1: CMakeFiles/assignment-1.dir/source/imposter.cpp.o
+assignment-1: CMakeFiles/assignment-1.dir/source/kill.cpp.o
 assignment-1: CMakeFiles/assignment-1.dir/source/main.cpp.o
 assignment-1: CMakeFiles/assignment-1.dir/source/maze.cpp.o
 assignment-1: CMakeFiles/assignment-1.dir/source/player.cpp.o
@@ -238,7 +253,7 @@ assignment-1: libglad.a
 assignment-1: /usr/local/lib/libGLEW.2.2.0.dylib
 assignment-1: /usr/local/lib/libfreetype.dylib
 assignment-1: CMakeFiles/assignment-1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable assignment-1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/tanish/Documents/Computer Graphics/assignments/1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable assignment-1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/assignment-1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
