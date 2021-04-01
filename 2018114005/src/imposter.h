@@ -45,8 +45,6 @@ public:
 	const float IMPOSTER_SIZE = 0.1;
 	bool exists = true;
 
-	int mov_cnt = 0;
-
 	pff begin;
 	pff cur;
 	pff travelled = mp(0.0f, 0.0f);

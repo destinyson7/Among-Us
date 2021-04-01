@@ -110,11 +110,9 @@ void Imposter::move(Player *PlayerRenderer, float dt, Maze *MazeRenderer)
 		this->cur.ss += dt / 4;
 		this->travelled.ss += dt / 4;
 		want_coord = this->travelled;
-		// this->mov_cnt++;
 
 		if (this->CheckCollision(MazeRenderer))
 		{
-			// this->mov_cnt--;
 			// cout << "top collision detected" << endl;
 			this->cur.ss -= dt / 4;
 			this->travelled.ss -= dt / 4;
@@ -129,11 +127,9 @@ void Imposter::move(Player *PlayerRenderer, float dt, Maze *MazeRenderer)
 		this->cur.ss -= dt / 4;
 		this->travelled.ss -= dt / 4;
 		want_coord = this->travelled;
-		// this->mov_cnt++;
 
 		if (this->CheckCollision(MazeRenderer))
 		{
-			// this->mov_cnt--;
 			// cout << "bottom collision detected" << endl;
 			this->cur.ss += dt / 4;
 			this->travelled.ss += dt / 4;
@@ -148,11 +144,9 @@ void Imposter::move(Player *PlayerRenderer, float dt, Maze *MazeRenderer)
 		this->cur.ff += dt / 4;
 		this->travelled.ff += dt / 4;
 		want_coord = this->travelled;
-		this->mov_cnt++;
 
 		if (this->CheckCollision(MazeRenderer))
 		{
-			this->mov_cnt--;
 			// cout << "right collision detected" << endl;
 			this->cur.ff -= dt / 4;
 			this->travelled.ff -= dt / 4;
@@ -167,11 +161,9 @@ void Imposter::move(Player *PlayerRenderer, float dt, Maze *MazeRenderer)
 		this->cur.ff -= dt / 4;
 		this->travelled.ff -= dt / 4;
 		want_coord = this->travelled;
-		this->mov_cnt++;
 
 		if (this->CheckCollision(MazeRenderer))
 		{
-			this->mov_cnt--;
 			// cout << "left collision detected" << endl;
 			this->cur.ff += dt / 4;
 			this->travelled.ff += dt / 4;
@@ -188,13 +180,11 @@ void Imposter::move(Player *PlayerRenderer, float dt, Maze *MazeRenderer)
 		{
 			this->cur.ff -= dt / 4;
 			this->travelled.ff -= dt / 4;
-			this->mov_cnt++;
 
 			// cout << "going left" << endl;
 
 			if (this->CheckCollision(MazeRenderer))
 			{
-				this->mov_cnt--;
 				this->cur.ff += dt / 4;
 				this->travelled.ff += dt / 4;
 			}
@@ -204,12 +194,11 @@ void Imposter::move(Player *PlayerRenderer, float dt, Maze *MazeRenderer)
 		{
 			this->cur.ss -= dt / 4;
 			this->travelled.ss -= dt / 4;
-			// this->mov_cnt++;
+
 			// cout << "going down" << endl;
 
 			if (this->CheckCollision(MazeRenderer))
 			{
-				// this->mov_cnt--;
 				this->cur.ss += dt / 4;
 				this->travelled.ss += dt / 4;
 			}

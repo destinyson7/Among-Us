@@ -75,12 +75,6 @@ void Game::Init()
 	ResourceManager::LoadTexture("../src/textures/player3.png", true, "player3");
 	ResourceManager::LoadTexture("../src/textures/player4.png", true, "player4");
 
-	ResourceManager::LoadTexture("../src/textures/imposter0.png", true, "imposter0");
-	ResourceManager::LoadTexture("../src/textures/imposter1.png", true, "imposter1");
-	ResourceManager::LoadTexture("../src/textures/imposter2.png", true, "imposter2");
-	ResourceManager::LoadTexture("../src/textures/imposter3.png", true, "imposter3");
-	ResourceManager::LoadTexture("../src/textures/imposter4.png", true, "imposter4");
-
 	Shader playerShader = ResourceManager::GetShader("player");
 	PlayerRenderer = new Player(playerShader, MazeRenderer);
 
@@ -262,8 +256,7 @@ void Game::Render()
 
 		if (ImposterRenderer->exists)
 		{
-			string texture_cnt1 = "imposter" + to_string((ImposterRenderer->mov_cnt / 7) % 5);
-			Texture2D imposterTexture = ResourceManager::GetTexture(texture_cnt1);
+			Texture2D imposterTexture = ResourceManager::GetTexture("imposter");
 			ImposterRenderer->DrawImposter(imposterTexture);
 		}
 

@@ -78,10 +78,6 @@ GL/gl.h
 GL/glext.h
 -
 
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/button.cpp
-button.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/button.h
-
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/button.h
 glad/glad.h
 -
@@ -152,28 +148,6 @@ player.h
 iostream
 -
 
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/main.cpp
-glad/glad.h
--
-GLFW/glfw3.h
--
-game.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/game.h
-resource_manager.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/resource_manager.h
-iostream
--
-
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/maze.cpp
-maze.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/maze.h
-iostream
--
-stack
--
-vector
--
-
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/maze.h
 glad/glad.h
 -
@@ -188,10 +162,6 @@ game_object.h
 vector
 -
 
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/player.cpp
-player.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/player.h
-
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/player.h
 glad/glad.h
 -
@@ -208,18 +178,6 @@ shader.h
 maze.h
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/maze.h
 
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/resource_manager.cpp
-resource_manager.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/resource_manager.h
-fstream
--
-iostream
--
-sstream
--
-stb_image.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/stb_image.h
-
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/resource_manager.h
 glad/glad.h
 -
@@ -231,12 +189,6 @@ shader.h
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/shader.h
 texture.h
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/texture.h
-
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/shader.cpp
-shader.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/shader.h
-iostream
--
 
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/shader.h
 string
@@ -248,54 +200,6 @@ glm/glm.hpp
 glm/gtc/type_ptr.hpp
 -
 
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/stb_image.cpp
-stb_image.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/stb_image.h
-
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/stb_image.h
-stb_image.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/stb_image.h
-stdio.h
--
-stdlib.h
--
-stdarg.h
--
-stddef.h
--
-stdlib.h
--
-string.h
--
-limits.h
--
-math.h
--
-stdio.h
--
-assert.h
--
-stdint.h
--
-emmintrin.h
--
-intrin.h
--
-arm_neon.h
--
-
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/text_renderer.cpp
-iostream
--
-glm/gtc/matrix_transform.hpp
--
-ft2build.h
--
-text_renderer.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/text_renderer.h
-resource_manager.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/resource_manager.h
-
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/text_renderer.h
 map
 -
@@ -308,20 +212,8 @@ texture.h
 shader.h
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/shader.h
 
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/texture.cpp
-iostream
--
-texture.h
-/Users/tanish/Documents/Computer Graphics/assignments/1/src/texture.h
-
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/texture.h
 glad/glad.h
--
-
-/usr/local/include/freetype2/freetype/config/ftheader.h
-
-/usr/local/include/freetype2/ft2build.h
-freetype/config/ftheader.h
 -
 
 /usr/local/include/glm/common.hpp
