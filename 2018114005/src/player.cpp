@@ -29,6 +29,11 @@ void Player::DrawPlayer(Texture2D &texture)
 	glm::mat4 model = glm::mat4(1.0f);
 	model = glm::translate(model, glm::vec3(this->cur.ff, this->cur.ss, 0.0f)); // first translate (transformations are: scale happens first, then rotation, and then final translation happens; reversed order)
 
+	if (this->going_left)
+	{
+		model = glm::scale(glm::translate(model, glm::vec3(this->PLAYER_SIZE, 0.0f, 0.0f)), glm::vec3(-1.0f, 1.0f, 1.0f));
+	}
+
 	// model = glm::translate(model, glm::vec3(0.5f * size.x, 0.5f * size.y, 0.0f));	// move origin of rotation to center of quad
 	// model = glm::rotate(model, glm::radians(rotate), glm::vec3(0.0f, 0.0f, 1.0f));	// then rotate
 	// model = glm::translate(model, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.0f)); // move origin back
@@ -72,32 +77,33 @@ void Player::move(int direction, float dt, Maze *MazeRenderer)
 	{
 		this->cur.ss += dt;
 		this->travelled.ss += dt;
-		this->move_cnt++;
+		// this->move_cnt++;
 
 		if (CheckCollision(MazeRenderer))
 		{
 			this->cur.ss -= dt;
 			this->travelled.ss -= dt;
-			this->move_cnt--;
+			// this->move_cnt--;
 		}
 	}
 
 	else if (direction == DOWN)
 	{
 		this->cur.ss -= dt;
-		this->move_cnt++;
+		// this->move_cnt++;
 		this->travelled.ss -= dt;
 
 		if (CheckCollision(MazeRenderer))
 		{
 			this->cur.ss += dt;
 			this->travelled.ss += dt;
-			this->move_cnt--;
+			// this->move_cnt--;
 		}
 	}
 
 	else if (direction == LEFT)
 	{
+		this->going_left = true;
 		this->cur.ff -= dt;
 		this->travelled.ff -= dt;
 		this->move_cnt++;
@@ -112,6 +118,7 @@ void Player::move(int direction, float dt, Maze *MazeRenderer)
 
 	else if (direction == RIGHT)
 	{
+		this->going_left = false;
 		this->cur.ff += dt;
 		this->travelled.ff += dt;
 		this->move_cnt++;

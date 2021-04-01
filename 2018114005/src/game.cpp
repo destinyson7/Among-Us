@@ -21,7 +21,7 @@ Button *bombRenderer2;
 Button *exitDoorRenderer;
 
 Game::Game(unsigned int width, unsigned int height)
-	: State(GAME_ACTIVE), Keys(), Width(width), Height(height)
+	: State(GAME_ACTIVE), Keys(), KeysProcessed(), Width(width), Height(height)
 {
 }
 
@@ -55,6 +55,10 @@ void Game::Init()
 	ResourceManager::GetShader("player").Use().SetInteger("image", 0);
 	ResourceManager::GetShader("imposter").Use().SetInteger("image", 0);
 	ResourceManager::GetShader("button").Use().SetInteger("image", 0);
+	ResourceManager::GetShader("maze").Use().SetVector3f("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
+	ResourceManager::GetShader("player").Use().SetVector3f("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
+	ResourceManager::GetShader("imposter").Use().SetVector3f("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
+	ResourceManager::GetShader("button").Use().SetVector3f("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
 
 	// set render-specific controls
 	Shader mazeShader = ResourceManager::GetShader("maze");
@@ -74,6 +78,12 @@ void Game::Init()
 	ResourceManager::LoadTexture("../src/textures/player2.png", true, "player2");
 	ResourceManager::LoadTexture("../src/textures/player3.png", true, "player3");
 	ResourceManager::LoadTexture("../src/textures/player4.png", true, "player4");
+
+	ResourceManager::LoadTexture("../src/textures/imposter0.png", true, "imposter0");
+	ResourceManager::LoadTexture("../src/textures/imposter1.png", true, "imposter1");
+	ResourceManager::LoadTexture("../src/textures/imposter2.png", true, "imposter2");
+	ResourceManager::LoadTexture("../src/textures/imposter3.png", true, "imposter3");
+	ResourceManager::LoadTexture("../src/textures/imposter4.png", true, "imposter4");
 
 	Shader playerShader = ResourceManager::GetShader("player");
 	PlayerRenderer = new Player(playerShader, MazeRenderer);
@@ -113,6 +123,47 @@ void Game::Init()
 
 void Game::Update(float dt)
 {
+	if (this->are_lights_off)
+	{
+		this->iter_cnt++;
+
+		if (this->iter_cnt == 60)
+		{
+			this->iter_cnt = 0;
+			PlayerRenderer->health++;
+		}
+	}
+
+	ResourceManager::GetShader("maze").Use().SetVector3f("lightPos", glm::vec3(PlayerRenderer->cur.ff, PlayerRenderer->cur.ss, 1.0f));
+	ResourceManager::GetShader("player").Use().SetVector3f("lightPos", glm::vec3(PlayerRenderer->cur.ff, PlayerRenderer->cur.ss, 1.0f));
+	ResourceManager::GetShader("imposter").Use().SetVector3f("lightPos", glm::vec3(PlayerRenderer->cur.ff, PlayerRenderer->cur.ss, 1.0f));
+	ResourceManager::GetShader("button").Use().SetVector3f("lightPos", glm::vec3(PlayerRenderer->cur.ff, PlayerRenderer->cur.ss, 1.0f));
+
+	if (this->are_lights_off)
+	{
+		ResourceManager::GetShader("maze").Use().SetFloat("lightCutOff", 1.1f);
+		ResourceManager::GetShader("player").Use().SetFloat("lightCutOff", 1.1f);
+		ResourceManager::GetShader("imposter").Use().SetFloat("lightCutOff", 1.1f);
+		ResourceManager::GetShader("button").Use().SetFloat("lightCutOff", 1.1f);
+
+		ResourceManager::GetShader("maze").Use().SetInteger("isOn", 0);
+		ResourceManager::GetShader("player").Use().SetInteger("isOn", 0);
+		ResourceManager::GetShader("imposter").Use().SetInteger("isOn", 0);
+		ResourceManager::GetShader("button").Use().SetInteger("isOn", 0);
+	}
+
+	else
+	{
+		ResourceManager::GetShader("maze").Use().SetFloat("lightCutOff", 100000.0f);
+		ResourceManager::GetShader("player").Use().SetFloat("lightCutOff", 100000.0f);
+		ResourceManager::GetShader("imposter").Use().SetFloat("lightCutOff", 100000.0f);
+		ResourceManager::GetShader("button").Use().SetFloat("lightCutOff", 100000.0f);
+
+		ResourceManager::GetShader("maze").Use().SetInteger("isOn", 1);
+		ResourceManager::GetShader("player").Use().SetInteger("isOn", 1);
+		ResourceManager::GetShader("imposter").Use().SetInteger("isOn", 1);
+		ResourceManager::GetShader("button").Use().SetInteger("isOn", 1);
+	}
 }
 
 void Game::ProcessInput(float dt)
@@ -137,43 +188,25 @@ void Game::ProcessInput(float dt)
 		PlayerRenderer->move(RIGHT, dt, MazeRenderer);
 	}
 
+	if (this->Keys[GLFW_KEY_T] && !this->KeysProcessed[GLFW_KEY_T])
+	{
+		this->are_lights_off ^= true;
+		this->KeysProcessed[GLFW_KEY_T] = true;
+
+		if (MazeRenderer->lighting == "On")
+		{
+			MazeRenderer->lighting = "Off";
+		}
+
+		else
+		{
+			MazeRenderer->lighting = "On";
+		}
+	}
+
 	if (ImposterRenderer->exists)
 	{
 		ImposterRenderer->move(PlayerRenderer, dt, MazeRenderer);
-
-		// if (this->Keys[GLFW_KEY_UP])
-		// {
-		// 	ImposterRenderer->move(UP, dt, MazeRenderer);
-		// }
-
-		// if (this->Keys[GLFW_KEY_DOWN])
-		// {
-		// 	ImposterRenderer->move(DOWN, dt, MazeRenderer);
-		// }
-
-		// if (this->Keys[GLFW_KEY_LEFT])
-		// {
-		// 	ImposterRenderer->move(LEFT, dt, MazeRenderer);
-		// }
-
-		// if (this->Keys[GLFW_KEY_RIGHT])
-		// {
-		// 	ImposterRenderer->move(RIGHT, dt, MazeRenderer);
-		// }
-
-		if (ImposterRenderer->CheckCollisionWithPlayer(PlayerRenderer))
-		{
-			ImposterRenderer->exists = false;
-			PlayerRenderer->health -= 75;
-			PlayerRenderer->health = max(0, PlayerRenderer->health);
-			KillButtonRenderer->exists = false;
-		}
-
-		if (KillButtonRenderer->CheckCollision(PlayerRenderer))
-		{
-			KillButtonRenderer->exists = false;
-			ImposterRenderer->exists = false;
-		}
 	}
 
 	if (ActivateButtonRenderer->exists && ActivateButtonRenderer->CheckCollision(PlayerRenderer))
@@ -256,7 +289,25 @@ void Game::Render()
 
 		if (ImposterRenderer->exists)
 		{
-			Texture2D imposterTexture = ResourceManager::GetTexture("imposter");
+			if (ImposterRenderer->CheckCollisionWithPlayer(PlayerRenderer))
+			{
+				ImposterRenderer->exists = false;
+				PlayerRenderer->health -= 75;
+				PlayerRenderer->health = max(0, PlayerRenderer->health);
+				KillButtonRenderer->exists = false;
+			}
+
+			if (KillButtonRenderer->CheckCollision(PlayerRenderer))
+			{
+				KillButtonRenderer->exists = false;
+				ImposterRenderer->exists = false;
+			}
+		}
+
+		if (ImposterRenderer->exists)
+		{
+			string texture_cnt1 = "imposter" + to_string((ImposterRenderer->mov_cnt / 7) % 5);
+			Texture2D imposterTexture = ResourceManager::GetTexture(texture_cnt1);
 			ImposterRenderer->DrawImposter(imposterTexture);
 		}
 

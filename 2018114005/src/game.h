@@ -21,7 +21,10 @@ public:
 	// game state
 	GameState State = GAME_ACTIVE;
 	bool Keys[1024];
+	bool KeysProcessed[1024];
+	bool are_lights_off = false;
 	int time_remaining = 60;
+	int iter_cnt = 0;
 	unsigned int Width, Height;
 	// constructor/destructor
 	Game(unsigned int width, unsigned int height);

@@ -27,6 +27,7 @@ public:
 	int health = 100;
 	int tasks_completed = 0;
 	int move_cnt = 0;
+	bool going_left = false;
 
 	pff begin;
 	pff cur;
