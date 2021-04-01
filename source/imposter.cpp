@@ -4,11 +4,12 @@ Imposter::Imposter(Shader &shader, Maze *MazeRenderer)
 {
 	this->shader = shader;
 
-	int c = rand() % MazeRenderer->MAZE_HEIGHT;
-	int r = rand() % MazeRenderer->MAZE_WIDTH;
+	int r = rand() % MazeRenderer->MAZE_HEIGHT;
+	int c = rand() % MazeRenderer->MAZE_WIDTH;
 
-	this->begin = mp((float)r * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.x, (float)c * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.y);
-	this->cur = mp((float)r * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.x, (float)c * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.y);
+	this->begin = mp((float)c * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.x, (float)r * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.y);
+	this->cur = mp((float)c * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.x, (float)r * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.y);
+	this->travelled = mp((float)c * MazeRenderer->EDGE_LENGTH, (float)r * MazeRenderer->EDGE_LENGTH);
 
 	this->initRenderData();
 }
@@ -48,11 +49,12 @@ bool Imposter::CheckCollision(Maze *MazeRenderer)
 {
 	for (auto edge : MazeRenderer->edges)
 	{
-		bool collisionX = (this->cur.ff - MazeRenderer->translate.x + this->IMPOSTER_SIZE >= edge.ff.ff) && (this->cur.ff - MazeRenderer->translate.x <= edge.ss.ff);
-		bool collisionY = (this->cur.ss - MazeRenderer->translate.y + this->IMPOSTER_SIZE >= edge.ff.ss) && (this->cur.ss - MazeRenderer->translate.y <= edge.ss.ss);
+		bool collisionX = (this->cur.ff - MazeRenderer->translate.x + this->IMPOSTER_SIZE > edge.ff.ff) && (this->cur.ff - MazeRenderer->translate.x < edge.ss.ff);
+		bool collisionY = (this->cur.ss - MazeRenderer->translate.y + this->IMPOSTER_SIZE > edge.ff.ss) && (this->cur.ss - MazeRenderer->translate.y < edge.ss.ss);
 
 		if (collisionX && collisionY)
 		{
+			// cout << this->travelled << " " << edge << " " << MazeRenderer->translate.x << " " << MazeRenderer->translate.y << endl;
 			// cout << "true" << endl;
 			return true;
 		}
@@ -65,8 +67,8 @@ bool Imposter::CheckCollision(Maze *MazeRenderer)
 bool Imposter::CheckCollisionWithPlayer(Player *PlayerRenderer)
 {
 
-	bool collisionX = (this->cur.ff + this->IMPOSTER_SIZE >= PlayerRenderer->cur.ff) && (this->cur.ff <= PlayerRenderer->cur.ff + PlayerRenderer->PLAYER_SIZE);
-	bool collisionY = (this->cur.ss + this->IMPOSTER_SIZE >= PlayerRenderer->cur.ss) && (this->cur.ss <= PlayerRenderer->cur.ss + PlayerRenderer->PLAYER_SIZE);
+	bool collisionX = (this->cur.ff + this->IMPOSTER_SIZE > PlayerRenderer->cur.ff) && (this->cur.ff < PlayerRenderer->cur.ff + PlayerRenderer->PLAYER_SIZE);
+	bool collisionY = (this->cur.ss + this->IMPOSTER_SIZE > PlayerRenderer->cur.ss) && (this->cur.ss < PlayerRenderer->cur.ss + PlayerRenderer->PLAYER_SIZE);
 
 	if (collisionX && collisionY)
 	{
@@ -78,47 +80,174 @@ bool Imposter::CheckCollisionWithPlayer(Player *PlayerRenderer)
 	return false;
 }
 
-void Imposter::move(int direction, float dt, Maze *MazeRenderer)
+void Imposter::move(Player *PlayerRenderer, float dt, Maze *MazeRenderer)
 {
-	if (direction == UP)
-	{
-		this->cur.ss += dt;
+	int player_r = PlayerRenderer->travelled.ss / MazeRenderer->EDGE_LENGTH;
+	int player_c = PlayerRenderer->travelled.ff / MazeRenderer->EDGE_LENGTH;
 
-		if (CheckCollision(MazeRenderer))
+	int imposter_r = this->travelled.ss / MazeRenderer->EDGE_LENGTH;
+	int imposter_c = this->travelled.ff / MazeRenderer->EDGE_LENGTH;
+
+	int i = imposter_r * MazeRenderer->MAZE_WIDTH + imposter_c;
+	int j = player_r * MazeRenderer->MAZE_WIDTH + player_c;
+
+	int k1 = (imposter_r + 1) * MazeRenderer->MAZE_WIDTH + imposter_c;
+	int k2 = (imposter_r - 1) * MazeRenderer->MAZE_WIDTH + imposter_c;
+	int k3 = imposter_r * MazeRenderer->MAZE_WIDTH + imposter_c + 1;
+	int k4 = imposter_r * MazeRenderer->MAZE_WIDTH + imposter_c - 1;
+
+	// vector<int> v = {player_r, player_c, imposter_r, imposter_c, i, j, k1, k2, k3, k4};
+	// cout << v << endl;
+
+	pff old_coord = this->travelled;
+	pff want_coord = this->travelled;
+
+	// cout << mp(imposter_r, imposter_c) << " " << mp(player_r, player_c) << endl;
+
+	if (MazeRenderer->maze[imposter_r][imposter_c].IS_TOP_OPEN && (MazeRenderer->dist[i][j] == MazeRenderer->dist[i][k1] + MazeRenderer->dist[k1][j]))
+	{
+		// cout << "go from " << mp(imposter_r, imposter_c) << " to " << mp(imposter_r + 1, imposter_c) << endl;
+		this->cur.ss += dt / 4;
+		this->travelled.ss += dt / 4;
+		want_coord = this->travelled;
+
+		if (this->CheckCollision(MazeRenderer))
 		{
-			this->cur.ss -= dt;
+			// cout << "top collision detected" << endl;
+			this->cur.ss -= dt / 4;
+			this->travelled.ss -= dt / 4;
+		}
+
+		// assert(!CheckCollision(MazeRenderer));
+	}
+
+	else if (MazeRenderer->maze[imposter_r][imposter_c].IS_BOTTOM_OPEN && (MazeRenderer->dist[i][j] == MazeRenderer->dist[i][k2] + MazeRenderer->dist[k2][j]))
+	{
+		// cout << "go from " << mp(imposter_r, imposter_c) << " to " << mp(imposter_r - 1, imposter_c) << endl;
+		this->cur.ss -= dt / 4;
+		this->travelled.ss -= dt / 4;
+		want_coord = this->travelled;
+
+		if (this->CheckCollision(MazeRenderer))
+		{
+			// cout << "bottom collision detected" << endl;
+			this->cur.ss += dt / 4;
+			this->travelled.ss += dt / 4;
+		}
+
+		// assert(!CheckCollision(MazeRenderer));
+	}
+
+	else if (MazeRenderer->maze[imposter_r][imposter_c].IS_RIGHT_OPEN && (MazeRenderer->dist[i][j] == MazeRenderer->dist[i][k3] + MazeRenderer->dist[k3][j]))
+	{
+		// cout << "go from " << mp(imposter_r, imposter_c) << " to " << mp(imposter_r, imposter_c + 1) << endl;
+		this->cur.ff += dt / 4;
+		this->travelled.ff += dt / 4;
+		want_coord = this->travelled;
+
+		if (this->CheckCollision(MazeRenderer))
+		{
+			// cout << "right collision detected" << endl;
+			this->cur.ff -= dt / 4;
+			this->travelled.ff -= dt / 4;
+		}
+
+		// assert(!CheckCollision(MazeRenderer));
+	}
+
+	else if (MazeRenderer->maze[imposter_r][imposter_c].IS_LEFT_OPEN && (MazeRenderer->dist[i][j] == MazeRenderer->dist[i][k4] + MazeRenderer->dist[k4][j]))
+	{
+		// cout << "go from " << mp(imposter_r, imposter_c) << " to " << mp(imposter_r, imposter_c - 1) << endl;
+		this->cur.ff -= dt / 4;
+		this->travelled.ff -= dt / 4;
+		want_coord = this->travelled;
+
+		if (this->CheckCollision(MazeRenderer))
+		{
+			// cout << "left collision detected" << endl;
+			this->cur.ff += dt / 4;
+			this->travelled.ff += dt / 4;
+		}
+
+		// assert(!CheckCollision(MazeRenderer));
+	}
+
+	pff new_coord = this->travelled;
+
+	if (old_coord == new_coord && old_coord != want_coord)
+	{
+		if (old_coord.ff == want_coord.ff)
+		{
+			this->cur.ff -= dt / 4;
+			this->travelled.ff -= dt / 4;
+
+			// cout << "going left" << endl;
+
+			if (this->CheckCollision(MazeRenderer))
+			{
+				this->cur.ff += dt / 4;
+				this->travelled.ff += dt / 4;
+			}
+		}
+
+		else if (old_coord.ss == want_coord.ss)
+		{
+			this->cur.ss -= dt / 4;
+			this->travelled.ss -= dt / 4;
+
+			// cout << "going down" << endl;
+
+			if (this->CheckCollision(MazeRenderer))
+			{
+				this->cur.ss += dt / 4;
+				this->travelled.ss += dt / 4;
+			}
 		}
 	}
 
-	else if (direction == DOWN)
-	{
-		this->cur.ss -= dt;
+	// if (direction == UP)
+	// {
+	// 	this->cur.ss += dt;
 
-		if (CheckCollision(MazeRenderer))
-		{
-			this->cur.ss += dt;
-		}
-	}
+	// 	if (CheckCollision(MazeRenderer))
+	// 	{
+	// 		cout << "top collision detected" << endl;
+	// 		this->cur.ss -= dt;
+	// 	}
+	// }
 
-	else if (direction == LEFT)
-	{
-		this->cur.ff -= dt;
+	// else if (direction == DOWN)
+	// {
+	// 	this->cur.ss -= dt;
 
-		if (CheckCollision(MazeRenderer))
-		{
-			this->cur.ff += dt;
-		}
-	}
+	// 	if (CheckCollision(MazeRenderer))
+	// 	{
+	// 		cout << "bottom collision detected" << endl;
+	// 		this->cur.ss += dt;
+	// 	}
+	// }
 
-	else if (direction == RIGHT)
-	{
-		this->cur.ff += dt;
+	// else if (direction == LEFT)
+	// {
+	// 	this->cur.ff -= dt;
 
-		if (CheckCollision(MazeRenderer))
-		{
-			this->cur.ff -= dt;
-		}
-	}
+	// 	if (CheckCollision(MazeRenderer))
+	// 	{
+	// 		cout << "left collision detected" << endl;
+	// 		this->cur.ff += dt;
+	// 	}
+	// }
+
+	// else if (direction == RIGHT)
+	// {
+	// 	this->cur.ff += dt;
+
+	// 	if (CheckCollision(MazeRenderer))
+	// 	{
+	// 		cout << "right collision detected" << endl;
+	// 		this->cur.ff -= dt;
+	// 	}
+	// }
 }
 
 void Imposter::initRenderData()

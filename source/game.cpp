@@ -139,25 +139,27 @@ void Game::ProcessInput(float dt)
 
 	if (ImposterRenderer->exists)
 	{
-		if (this->Keys[GLFW_KEY_UP])
-		{
-			ImposterRenderer->move(UP, dt, MazeRenderer);
-		}
+		ImposterRenderer->move(PlayerRenderer, dt, MazeRenderer);
 
-		if (this->Keys[GLFW_KEY_DOWN])
-		{
-			ImposterRenderer->move(DOWN, dt, MazeRenderer);
-		}
+		// if (this->Keys[GLFW_KEY_UP])
+		// {
+		// 	ImposterRenderer->move(UP, dt, MazeRenderer);
+		// }
 
-		if (this->Keys[GLFW_KEY_LEFT])
-		{
-			ImposterRenderer->move(LEFT, dt, MazeRenderer);
-		}
+		// if (this->Keys[GLFW_KEY_DOWN])
+		// {
+		// 	ImposterRenderer->move(DOWN, dt, MazeRenderer);
+		// }
 
-		if (this->Keys[GLFW_KEY_RIGHT])
-		{
-			ImposterRenderer->move(RIGHT, dt, MazeRenderer);
-		}
+		// if (this->Keys[GLFW_KEY_LEFT])
+		// {
+		// 	ImposterRenderer->move(LEFT, dt, MazeRenderer);
+		// }
+
+		// if (this->Keys[GLFW_KEY_RIGHT])
+		// {
+		// 	ImposterRenderer->move(RIGHT, dt, MazeRenderer);
+		// }
 
 		if (ImposterRenderer->CheckCollisionWithPlayer(PlayerRenderer))
 		{

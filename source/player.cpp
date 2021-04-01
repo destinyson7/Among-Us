@@ -5,15 +5,15 @@ Player::Player(Shader &shader, Maze *MazeRenderer)
 	this->shader = shader;
 	// this->begin = mp(0.025, 0.02);
 
-	int c = rand() % MazeRenderer->MAZE_HEIGHT;
-	int r = rand() % MazeRenderer->MAZE_WIDTH;
+	int r = rand() % MazeRenderer->MAZE_HEIGHT;
+	int c = rand() % MazeRenderer->MAZE_WIDTH;
 
 	// this->begin = mp(0.00f, 0.1f);
 	// this->cur = mp(0.00f, 0.1f);
 
-	this->begin = mp((float)r * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.x, (float)c * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.y);
-	this->cur = mp((float)r * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.x, (float)c * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.y);
-
+	this->begin = mp((float)c * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.x, (float)r * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.y);
+	this->cur = mp((float)c * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.x, (float)r * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.y);
+	this->travelled = mp((float)c * MazeRenderer->EDGE_LENGTH, (float)r * MazeRenderer->EDGE_LENGTH);
 	this->initRenderData();
 }
 
@@ -52,8 +52,8 @@ bool Player::CheckCollision(Maze *MazeRenderer)
 {
 	for (auto edge : MazeRenderer->edges)
 	{
-		bool collisionX = (this->cur.ff - MazeRenderer->translate.x + this->PLAYER_SIZE >= edge.ff.ff) && (this->cur.ff - MazeRenderer->translate.x <= edge.ss.ff);
-		bool collisionY = (this->cur.ss - MazeRenderer->translate.y + this->PLAYER_SIZE >= edge.ff.ss) && (this->cur.ss - MazeRenderer->translate.y <= edge.ss.ss);
+		bool collisionX = (this->cur.ff - MazeRenderer->translate.x + this->PLAYER_SIZE > edge.ff.ff) && (this->cur.ff - MazeRenderer->translate.x < edge.ss.ff);
+		bool collisionY = (this->cur.ss - MazeRenderer->translate.y + this->PLAYER_SIZE > edge.ff.ss) && (this->cur.ss - MazeRenderer->translate.y < edge.ss.ss);
 
 		if (collisionX && collisionY)
 		{
@@ -71,11 +71,13 @@ void Player::move(int direction, float dt, Maze *MazeRenderer)
 	if (direction == UP)
 	{
 		this->cur.ss += dt;
+		this->travelled.ss += dt;
 		this->move_cnt++;
 
 		if (CheckCollision(MazeRenderer))
 		{
 			this->cur.ss -= dt;
+			this->travelled.ss -= dt;
 			this->move_cnt--;
 		}
 	}
@@ -84,10 +86,12 @@ void Player::move(int direction, float dt, Maze *MazeRenderer)
 	{
 		this->cur.ss -= dt;
 		this->move_cnt++;
+		this->travelled.ss -= dt;
 
 		if (CheckCollision(MazeRenderer))
 		{
 			this->cur.ss += dt;
+			this->travelled.ss += dt;
 			this->move_cnt--;
 		}
 	}
@@ -95,11 +99,13 @@ void Player::move(int direction, float dt, Maze *MazeRenderer)
 	else if (direction == LEFT)
 	{
 		this->cur.ff -= dt;
+		this->travelled.ff -= dt;
 		this->move_cnt++;
 
 		if (CheckCollision(MazeRenderer))
 		{
 			this->cur.ff += dt;
+			this->travelled.ff += dt;
 			this->move_cnt--;
 		}
 	}
@@ -107,11 +113,13 @@ void Player::move(int direction, float dt, Maze *MazeRenderer)
 	else if (direction == RIGHT)
 	{
 		this->cur.ff += dt;
+		this->travelled.ff += dt;
 		this->move_cnt++;
 
 		if (CheckCollision(MazeRenderer))
 		{
 			this->cur.ff -= dt;
+			this->travelled.ff -= dt;
 			this->move_cnt--;
 		}
 	}

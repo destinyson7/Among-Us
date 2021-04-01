@@ -212,11 +212,84 @@ vector<float> Maze::GenerateMaze(float edge_length, pair<int, int> start_positio
 		}
 	}
 
+	this->FloydWarshall();
+
 	// cout << this->n_edges << " " << ind << endl;
 
 	// assert(ind == n_vertices * 4);
 
 	return vertices_vec;
+}
+
+void Maze::FloydWarshall()
+{
+	for (int i = 0; i < this->MAZE_HEIGHT * this->MAZE_WIDTH; i++)
+	{
+		for (int j = 0; j < this->MAZE_HEIGHT * this->MAZE_WIDTH; j++)
+		{
+			this->dist[i][j] = 1e8;
+		}
+	}
+
+	for (int i = 0; i < this->MAZE_HEIGHT * this->MAZE_WIDTH; i++)
+	{
+		this->dist[i][i] = 0;
+	}
+
+	for (int i = 0; i < this->MAZE_HEIGHT; i++)
+	{
+		for (int j = 0; j < this->MAZE_WIDTH; j++)
+		{
+			if ((this->maze[i][j]).IS_BOTTOM_OPEN)
+			{
+				int ff = i * MAZE_WIDTH + j;
+				int ss = (i - 1) * MAZE_WIDTH + j;
+
+				this->dist[ff][ss] = 1;
+				this->dist[ss][ff] = 1;
+			}
+
+			if ((this->maze[i][j]).IS_TOP_OPEN)
+			{
+				int ff = i * MAZE_WIDTH + j;
+				int ss = (i + 1) * MAZE_WIDTH + j;
+
+				this->dist[ff][ss] = 1;
+				this->dist[ss][ff] = 1;
+			}
+
+			if ((this->maze[i][j]).IS_LEFT_OPEN)
+			{
+				int ff = i * MAZE_WIDTH + j;
+				int ss = i * MAZE_WIDTH + j - 1;
+
+				this->dist[ff][ss] = 1;
+				this->dist[ss][ff] = 1;
+			}
+
+			if ((this->maze[i][j]).IS_RIGHT_OPEN)
+			{
+				int ff = i * MAZE_WIDTH + j;
+				int ss = i * MAZE_WIDTH + j + 1;
+
+				this->dist[ff][ss] = 1;
+				this->dist[ss][ff] = 1;
+			}
+		}
+	}
+
+	int n = MAZE_HEIGHT * MAZE_WIDTH;
+
+	for (int k = 0; k < n; k++)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				this->dist[i][j] = min(this->dist[i][j], this->dist[i][k] + this->dist[k][j]);
+			}
+		}
+	}
 }
 
 void Maze::initRenderData()

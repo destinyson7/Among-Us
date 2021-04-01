@@ -45,6 +45,7 @@ public:
 	vector<pair<pff, pff>> edges;
 
 	GameObject maze[MAZE_HEIGHT][MAZE_WIDTH];
+	int dist[MAZE_HEIGHT * MAZE_WIDTH][MAZE_HEIGHT * MAZE_WIDTH];
 	// Constructor (inits shaders/shapes)
 	Maze(Shader &shader);
 	// Destructor
@@ -52,6 +53,7 @@ public:
 	// Renders a defined quad textured with given sprite
 	void DrawMaze();
 	vector<float> GenerateMaze(float edge_length, pair<int, int> start_position);
+	void FloydWarshall();
 
 private:
 	// Render state

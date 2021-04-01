@@ -48,8 +48,8 @@ void Button::DrawButton(Texture2D &texture)
 bool Button::CheckCollision(Player *PlayerRenderer)
 {
 
-	bool collisionX = (this->pos.ff + this->BUTTON_SIZE >= PlayerRenderer->cur.ff) && (this->pos.ff <= PlayerRenderer->cur.ff + PlayerRenderer->PLAYER_SIZE);
-	bool collisionY = (this->pos.ss + this->BUTTON_SIZE >= PlayerRenderer->cur.ss) && (this->pos.ss <= PlayerRenderer->cur.ss + PlayerRenderer->PLAYER_SIZE);
+	bool collisionX = (this->pos.ff + this->BUTTON_SIZE > PlayerRenderer->cur.ff) && (this->pos.ff < PlayerRenderer->cur.ff + PlayerRenderer->PLAYER_SIZE);
+	bool collisionY = (this->pos.ss + this->BUTTON_SIZE > PlayerRenderer->cur.ss) && (this->pos.ss < PlayerRenderer->cur.ss + PlayerRenderer->PLAYER_SIZE);
 
 	if (collisionX && collisionY)
 	{

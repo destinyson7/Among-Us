@@ -30,6 +30,7 @@ public:
 
 	pff begin;
 	pff cur;
+	pff travelled = mp(0.0f, 0.0f);
 	// Destructor
 	~Player();
 	// Renders a defined quad textured with given sprite
