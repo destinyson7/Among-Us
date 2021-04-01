@@ -9,9 +9,6 @@ Button::Button(Shader &shader, Maze *MazeRenderer)
 	int c = rand() % MazeRenderer->MAZE_HEIGHT;
 	int r = rand() % MazeRenderer->MAZE_WIDTH;
 
-	// r = max(r - 1, 0);
-	// c = max(c - 1, 0);
-
 	this->pos = mp((float)r * this->BUTTON_SIZE + MazeRenderer->translate.x, (float)c * this->BUTTON_SIZE + MazeRenderer->translate.y);
 
 	this->initRenderData();

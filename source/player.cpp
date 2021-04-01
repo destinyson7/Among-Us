@@ -1,11 +1,19 @@
 #include "player.h"
 
-Player::Player(Shader &shader)
+Player::Player(Shader &shader, Maze *MazeRenderer)
 {
 	this->shader = shader;
 	// this->begin = mp(0.025, 0.02);
-	this->begin = mp(0.00f, 0.1f);
-	this->cur = mp(0.00f, 0.1f);
+
+	int c = rand() % MazeRenderer->MAZE_HEIGHT;
+	int r = rand() % MazeRenderer->MAZE_WIDTH;
+
+	// this->begin = mp(0.00f, 0.1f);
+	// this->cur = mp(0.00f, 0.1f);
+
+	this->begin = mp((float)r * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.x, (float)c * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.y);
+	this->cur = mp((float)r * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.x, (float)c * MazeRenderer->EDGE_LENGTH + MazeRenderer->translate.y);
+
 	this->initRenderData();
 }
 

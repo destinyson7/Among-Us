@@ -62,10 +62,10 @@ void Game::Init()
 	ResourceManager::LoadTexture("../source/textures/bomb.png", true, "bomb_button");
 
 	Shader playerShader = ResourceManager::GetShader("player");
-	PlayerRenderer = new Player(playerShader);
+	PlayerRenderer = new Player(playerShader, MazeRenderer);
 
 	Shader imposterShader = ResourceManager::GetShader("imposter");
-	ImposterRenderer = new Imposter(imposterShader);
+	ImposterRenderer = new Imposter(imposterShader, MazeRenderer);
 
 	Shader killButtonShader = ResourceManager::GetShader("button");
 	KillButtonRenderer = new Button(killButtonShader, MazeRenderer);

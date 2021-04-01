@@ -21,7 +21,7 @@ class Player
 {
 public:
 	// Constructor (inits shaders/shapes)
-	Player(Shader &shader);
+	Player(Shader &shader, Maze *MazeRenderer);
 
 	const float PLAYER_SIZE = 0.1;
 	int health = 100;

@@ -21,7 +21,7 @@ class Imposter
 {
 public:
 	// Constructor (inits shaders/shapes)
-	Imposter(Shader &shader);
+	Imposter(Shader &shader, Maze *MazeRenderer);
 
 	const float IMPOSTER_SIZE = 0.1;
 	bool exists = true;
