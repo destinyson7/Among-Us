@@ -195,302 +195,302 @@ libraries/glad/src/glad.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/libraries/glad/src/glad.c.s
 .PHONY : libraries/glad/src/glad.c.s
 
-source/button.o: source/button.cpp.o
+src/button.o: src/button.cpp.o
 
-.PHONY : source/button.o
-
-# target to build an object file
-source/button.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/button.cpp.o
-.PHONY : source/button.cpp.o
-
-source/button.i: source/button.cpp.i
-
-.PHONY : source/button.i
-
-# target to preprocess a source file
-source/button.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/button.cpp.i
-.PHONY : source/button.cpp.i
-
-source/button.s: source/button.cpp.s
-
-.PHONY : source/button.s
-
-# target to generate assembly for a file
-source/button.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/button.cpp.s
-.PHONY : source/button.cpp.s
-
-source/game.o: source/game.cpp.o
-
-.PHONY : source/game.o
+.PHONY : src/button.o
 
 # target to build an object file
-source/game.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/game.cpp.o
-.PHONY : source/game.cpp.o
+src/button.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/button.cpp.o
+.PHONY : src/button.cpp.o
 
-source/game.i: source/game.cpp.i
+src/button.i: src/button.cpp.i
 
-.PHONY : source/game.i
+.PHONY : src/button.i
 
 # target to preprocess a source file
-source/game.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/game.cpp.i
-.PHONY : source/game.cpp.i
+src/button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/button.cpp.i
+.PHONY : src/button.cpp.i
 
-source/game.s: source/game.cpp.s
+src/button.s: src/button.cpp.s
 
-.PHONY : source/game.s
+.PHONY : src/button.s
 
 # target to generate assembly for a file
-source/game.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/game.cpp.s
-.PHONY : source/game.cpp.s
+src/button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/button.cpp.s
+.PHONY : src/button.cpp.s
 
-source/imposter.o: source/imposter.cpp.o
+src/game.o: src/game.cpp.o
 
-.PHONY : source/imposter.o
+.PHONY : src/game.o
 
 # target to build an object file
-source/imposter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/imposter.cpp.o
-.PHONY : source/imposter.cpp.o
+src/game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/game.cpp.o
+.PHONY : src/game.cpp.o
 
-source/imposter.i: source/imposter.cpp.i
+src/game.i: src/game.cpp.i
 
-.PHONY : source/imposter.i
+.PHONY : src/game.i
 
 # target to preprocess a source file
-source/imposter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/imposter.cpp.i
-.PHONY : source/imposter.cpp.i
+src/game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/game.cpp.i
+.PHONY : src/game.cpp.i
 
-source/imposter.s: source/imposter.cpp.s
+src/game.s: src/game.cpp.s
 
-.PHONY : source/imposter.s
+.PHONY : src/game.s
 
 # target to generate assembly for a file
-source/imposter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/imposter.cpp.s
-.PHONY : source/imposter.cpp.s
+src/game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/game.cpp.s
+.PHONY : src/game.cpp.s
 
-source/main.o: source/main.cpp.o
+src/imposter.o: src/imposter.cpp.o
 
-.PHONY : source/main.o
+.PHONY : src/imposter.o
 
 # target to build an object file
-source/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/main.cpp.o
-.PHONY : source/main.cpp.o
+src/imposter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/imposter.cpp.o
+.PHONY : src/imposter.cpp.o
 
-source/main.i: source/main.cpp.i
+src/imposter.i: src/imposter.cpp.i
 
-.PHONY : source/main.i
+.PHONY : src/imposter.i
 
 # target to preprocess a source file
-source/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/main.cpp.i
-.PHONY : source/main.cpp.i
+src/imposter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/imposter.cpp.i
+.PHONY : src/imposter.cpp.i
 
-source/main.s: source/main.cpp.s
+src/imposter.s: src/imposter.cpp.s
 
-.PHONY : source/main.s
+.PHONY : src/imposter.s
 
 # target to generate assembly for a file
-source/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/main.cpp.s
-.PHONY : source/main.cpp.s
+src/imposter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/imposter.cpp.s
+.PHONY : src/imposter.cpp.s
 
-source/maze.o: source/maze.cpp.o
+src/main.o: src/main.cpp.o
 
-.PHONY : source/maze.o
+.PHONY : src/main.o
 
 # target to build an object file
-source/maze.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/maze.cpp.o
-.PHONY : source/maze.cpp.o
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-source/maze.i: source/maze.cpp.i
+src/main.i: src/main.cpp.i
 
-.PHONY : source/maze.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-source/maze.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/maze.cpp.i
-.PHONY : source/maze.cpp.i
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-source/maze.s: source/maze.cpp.s
+src/main.s: src/main.cpp.s
 
-.PHONY : source/maze.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-source/maze.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/maze.cpp.s
-.PHONY : source/maze.cpp.s
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
-source/player.o: source/player.cpp.o
+src/maze.o: src/maze.cpp.o
 
-.PHONY : source/player.o
+.PHONY : src/maze.o
 
 # target to build an object file
-source/player.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/player.cpp.o
-.PHONY : source/player.cpp.o
+src/maze.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/maze.cpp.o
+.PHONY : src/maze.cpp.o
 
-source/player.i: source/player.cpp.i
+src/maze.i: src/maze.cpp.i
 
-.PHONY : source/player.i
+.PHONY : src/maze.i
 
 # target to preprocess a source file
-source/player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/player.cpp.i
-.PHONY : source/player.cpp.i
+src/maze.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/maze.cpp.i
+.PHONY : src/maze.cpp.i
 
-source/player.s: source/player.cpp.s
+src/maze.s: src/maze.cpp.s
 
-.PHONY : source/player.s
+.PHONY : src/maze.s
 
 # target to generate assembly for a file
-source/player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/player.cpp.s
-.PHONY : source/player.cpp.s
+src/maze.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/maze.cpp.s
+.PHONY : src/maze.cpp.s
 
-source/resource_manager.o: source/resource_manager.cpp.o
+src/player.o: src/player.cpp.o
 
-.PHONY : source/resource_manager.o
+.PHONY : src/player.o
 
 # target to build an object file
-source/resource_manager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/resource_manager.cpp.o
-.PHONY : source/resource_manager.cpp.o
+src/player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/player.cpp.o
+.PHONY : src/player.cpp.o
 
-source/resource_manager.i: source/resource_manager.cpp.i
+src/player.i: src/player.cpp.i
 
-.PHONY : source/resource_manager.i
+.PHONY : src/player.i
 
 # target to preprocess a source file
-source/resource_manager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/resource_manager.cpp.i
-.PHONY : source/resource_manager.cpp.i
+src/player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/player.cpp.i
+.PHONY : src/player.cpp.i
 
-source/resource_manager.s: source/resource_manager.cpp.s
+src/player.s: src/player.cpp.s
 
-.PHONY : source/resource_manager.s
+.PHONY : src/player.s
 
 # target to generate assembly for a file
-source/resource_manager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/resource_manager.cpp.s
-.PHONY : source/resource_manager.cpp.s
+src/player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/player.cpp.s
+.PHONY : src/player.cpp.s
 
-source/shader.o: source/shader.cpp.o
+src/resource_manager.o: src/resource_manager.cpp.o
 
-.PHONY : source/shader.o
+.PHONY : src/resource_manager.o
 
 # target to build an object file
-source/shader.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/shader.cpp.o
-.PHONY : source/shader.cpp.o
+src/resource_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/resource_manager.cpp.o
+.PHONY : src/resource_manager.cpp.o
 
-source/shader.i: source/shader.cpp.i
+src/resource_manager.i: src/resource_manager.cpp.i
 
-.PHONY : source/shader.i
+.PHONY : src/resource_manager.i
 
 # target to preprocess a source file
-source/shader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/shader.cpp.i
-.PHONY : source/shader.cpp.i
+src/resource_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/resource_manager.cpp.i
+.PHONY : src/resource_manager.cpp.i
 
-source/shader.s: source/shader.cpp.s
+src/resource_manager.s: src/resource_manager.cpp.s
 
-.PHONY : source/shader.s
+.PHONY : src/resource_manager.s
 
 # target to generate assembly for a file
-source/shader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/shader.cpp.s
-.PHONY : source/shader.cpp.s
+src/resource_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/resource_manager.cpp.s
+.PHONY : src/resource_manager.cpp.s
 
-source/stb_image.o: source/stb_image.cpp.o
+src/shader.o: src/shader.cpp.o
 
-.PHONY : source/stb_image.o
+.PHONY : src/shader.o
 
 # target to build an object file
-source/stb_image.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/stb_image.cpp.o
-.PHONY : source/stb_image.cpp.o
+src/shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/shader.cpp.o
+.PHONY : src/shader.cpp.o
 
-source/stb_image.i: source/stb_image.cpp.i
+src/shader.i: src/shader.cpp.i
 
-.PHONY : source/stb_image.i
+.PHONY : src/shader.i
 
 # target to preprocess a source file
-source/stb_image.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/stb_image.cpp.i
-.PHONY : source/stb_image.cpp.i
+src/shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/shader.cpp.i
+.PHONY : src/shader.cpp.i
 
-source/stb_image.s: source/stb_image.cpp.s
+src/shader.s: src/shader.cpp.s
 
-.PHONY : source/stb_image.s
+.PHONY : src/shader.s
 
 # target to generate assembly for a file
-source/stb_image.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/stb_image.cpp.s
-.PHONY : source/stb_image.cpp.s
+src/shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/shader.cpp.s
+.PHONY : src/shader.cpp.s
 
-source/text_renderer.o: source/text_renderer.cpp.o
+src/stb_image.o: src/stb_image.cpp.o
 
-.PHONY : source/text_renderer.o
+.PHONY : src/stb_image.o
 
 # target to build an object file
-source/text_renderer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/text_renderer.cpp.o
-.PHONY : source/text_renderer.cpp.o
+src/stb_image.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/stb_image.cpp.o
+.PHONY : src/stb_image.cpp.o
 
-source/text_renderer.i: source/text_renderer.cpp.i
+src/stb_image.i: src/stb_image.cpp.i
 
-.PHONY : source/text_renderer.i
+.PHONY : src/stb_image.i
 
 # target to preprocess a source file
-source/text_renderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/text_renderer.cpp.i
-.PHONY : source/text_renderer.cpp.i
+src/stb_image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/stb_image.cpp.i
+.PHONY : src/stb_image.cpp.i
 
-source/text_renderer.s: source/text_renderer.cpp.s
+src/stb_image.s: src/stb_image.cpp.s
 
-.PHONY : source/text_renderer.s
+.PHONY : src/stb_image.s
 
 # target to generate assembly for a file
-source/text_renderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/text_renderer.cpp.s
-.PHONY : source/text_renderer.cpp.s
+src/stb_image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/stb_image.cpp.s
+.PHONY : src/stb_image.cpp.s
 
-source/texture.o: source/texture.cpp.o
+src/text_renderer.o: src/text_renderer.cpp.o
 
-.PHONY : source/texture.o
+.PHONY : src/text_renderer.o
 
 # target to build an object file
-source/texture.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/texture.cpp.o
-.PHONY : source/texture.cpp.o
+src/text_renderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/text_renderer.cpp.o
+.PHONY : src/text_renderer.cpp.o
 
-source/texture.i: source/texture.cpp.i
+src/text_renderer.i: src/text_renderer.cpp.i
 
-.PHONY : source/texture.i
+.PHONY : src/text_renderer.i
 
 # target to preprocess a source file
-source/texture.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/texture.cpp.i
-.PHONY : source/texture.cpp.i
+src/text_renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/text_renderer.cpp.i
+.PHONY : src/text_renderer.cpp.i
 
-source/texture.s: source/texture.cpp.s
+src/text_renderer.s: src/text_renderer.cpp.s
 
-.PHONY : source/texture.s
+.PHONY : src/text_renderer.s
 
 # target to generate assembly for a file
-source/texture.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/source/texture.cpp.s
-.PHONY : source/texture.cpp.s
+src/text_renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/text_renderer.cpp.s
+.PHONY : src/text_renderer.cpp.s
+
+src/texture.o: src/texture.cpp.o
+
+.PHONY : src/texture.o
+
+# target to build an object file
+src/texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/texture.cpp.o
+.PHONY : src/texture.cpp.o
+
+src/texture.i: src/texture.cpp.i
+
+.PHONY : src/texture.i
+
+# target to preprocess a source file
+src/texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/texture.cpp.i
+.PHONY : src/texture.cpp.i
+
+src/texture.s: src/texture.cpp.s
+
+.PHONY : src/texture.s
+
+# target to generate assembly for a file
+src/texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assignment-1.dir/build.make CMakeFiles/assignment-1.dir/src/texture.cpp.s
+.PHONY : src/texture.cpp.s
 
 # Help Target
 help:
@@ -506,39 +506,39 @@ help:
 	@echo "... libraries/glad/src/glad.o"
 	@echo "... libraries/glad/src/glad.i"
 	@echo "... libraries/glad/src/glad.s"
-	@echo "... source/button.o"
-	@echo "... source/button.i"
-	@echo "... source/button.s"
-	@echo "... source/game.o"
-	@echo "... source/game.i"
-	@echo "... source/game.s"
-	@echo "... source/imposter.o"
-	@echo "... source/imposter.i"
-	@echo "... source/imposter.s"
-	@echo "... source/main.o"
-	@echo "... source/main.i"
-	@echo "... source/main.s"
-	@echo "... source/maze.o"
-	@echo "... source/maze.i"
-	@echo "... source/maze.s"
-	@echo "... source/player.o"
-	@echo "... source/player.i"
-	@echo "... source/player.s"
-	@echo "... source/resource_manager.o"
-	@echo "... source/resource_manager.i"
-	@echo "... source/resource_manager.s"
-	@echo "... source/shader.o"
-	@echo "... source/shader.i"
-	@echo "... source/shader.s"
-	@echo "... source/stb_image.o"
-	@echo "... source/stb_image.i"
-	@echo "... source/stb_image.s"
-	@echo "... source/text_renderer.o"
-	@echo "... source/text_renderer.i"
-	@echo "... source/text_renderer.s"
-	@echo "... source/texture.o"
-	@echo "... source/texture.i"
-	@echo "... source/texture.s"
+	@echo "... src/button.o"
+	@echo "... src/button.i"
+	@echo "... src/button.s"
+	@echo "... src/game.o"
+	@echo "... src/game.i"
+	@echo "... src/game.s"
+	@echo "... src/imposter.o"
+	@echo "... src/imposter.i"
+	@echo "... src/imposter.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/maze.o"
+	@echo "... src/maze.i"
+	@echo "... src/maze.s"
+	@echo "... src/player.o"
+	@echo "... src/player.i"
+	@echo "... src/player.s"
+	@echo "... src/resource_manager.o"
+	@echo "... src/resource_manager.i"
+	@echo "... src/resource_manager.s"
+	@echo "... src/shader.o"
+	@echo "... src/shader.i"
+	@echo "... src/shader.s"
+	@echo "... src/stb_image.o"
+	@echo "... src/stb_image.i"
+	@echo "... src/stb_image.s"
+	@echo "... src/text_renderer.o"
+	@echo "... src/text_renderer.i"
+	@echo "... src/text_renderer.s"
+	@echo "... src/texture.o"
+	@echo "... src/texture.i"
+	@echo "... src/texture.s"
 .PHONY : help
 
 

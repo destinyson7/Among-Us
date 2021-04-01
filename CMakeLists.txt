@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.1)
 project(assignment-1)
 
 # Source files
-set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/source")
+set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libraries")
 file(GLOB SOURCES "${SRC_DIR}/*.cpp")
 

@@ -44,10 +44,10 @@ Game::~Game()
 void Game::Init()
 {
 	// load shaders
-	ResourceManager::LoadShader("../source/shaders/maze.vert", "../source/shaders/maze.frag", nullptr, "maze");
-	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "player");
-	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "imposter");
-	ResourceManager::LoadShader("../source/shaders/player.vert", "../source/shaders/player.frag", nullptr, "button");
+	ResourceManager::LoadShader("../src/shaders/maze.vert", "../src/shaders/maze.frag", nullptr, "maze");
+	ResourceManager::LoadShader("../src/shaders/player.vert", "../src/shaders/player.frag", nullptr, "player");
+	ResourceManager::LoadShader("../src/shaders/player.vert", "../src/shaders/player.frag", nullptr, "imposter");
+	ResourceManager::LoadShader("../src/shaders/player.vert", "../src/shaders/player.frag", nullptr, "button");
 
 	// configure shaders
 
@@ -61,19 +61,19 @@ void Game::Init()
 	MazeRenderer = new Maze(mazeShader);
 
 	// load textures
-	ResourceManager::LoadTexture("../source/textures/among_us.png", true, "player");
-	ResourceManager::LoadTexture("../source/textures/imposter.png", true, "imposter");
-	ResourceManager::LoadTexture("../source/textures/kill.jpeg", true, "kill_button");
-	ResourceManager::LoadTexture("../source/textures/boost.png", true, "activate_button");
-	ResourceManager::LoadTexture("../source/textures/coin.png", true, "coin_button");
-	ResourceManager::LoadTexture("../source/textures/bomb.png", true, "bomb_button");
-	ResourceManager::LoadTexture("../source/textures/exit.jpeg", false, "exit_button");
+	ResourceManager::LoadTexture("../src/textures/among_us.png", true, "player");
+	ResourceManager::LoadTexture("../src/textures/imposter.png", true, "imposter");
+	ResourceManager::LoadTexture("../src/textures/kill.jpeg", true, "kill_button");
+	ResourceManager::LoadTexture("../src/textures/boost.png", true, "activate_button");
+	ResourceManager::LoadTexture("../src/textures/coin.png", true, "coin_button");
+	ResourceManager::LoadTexture("../src/textures/bomb.png", true, "bomb_button");
+	ResourceManager::LoadTexture("../src/textures/exit.jpeg", false, "exit_button");
 
-	ResourceManager::LoadTexture("../source/textures/player0.png", true, "player0");
-	ResourceManager::LoadTexture("../source/textures/player1.png", true, "player1");
-	ResourceManager::LoadTexture("../source/textures/player2.png", true, "player2");
-	ResourceManager::LoadTexture("../source/textures/player3.png", true, "player3");
-	ResourceManager::LoadTexture("../source/textures/player4.png", true, "player4");
+	ResourceManager::LoadTexture("../src/textures/player0.png", true, "player0");
+	ResourceManager::LoadTexture("../src/textures/player1.png", true, "player1");
+	ResourceManager::LoadTexture("../src/textures/player2.png", true, "player2");
+	ResourceManager::LoadTexture("../src/textures/player3.png", true, "player3");
+	ResourceManager::LoadTexture("../src/textures/player4.png", true, "player4");
 
 	Shader playerShader = ResourceManager::GetShader("player");
 	PlayerRenderer = new Player(playerShader, MazeRenderer);
@@ -108,7 +108,7 @@ void Game::Init()
 	exitDoorRenderer->exists = false;
 
 	Text = new TextRenderer(this->Width, this->Height);
-	Text->Load("../source/fonts/OCRAEXT.TTF", 40);
+	Text->Load("../src/fonts/OCRAEXT.TTF", 40);
 }
 
 void Game::Update(float dt)
