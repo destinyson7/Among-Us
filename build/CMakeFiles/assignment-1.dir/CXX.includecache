@@ -78,6 +78,10 @@ GL/gl.h
 GL/glext.h
 -
 
+/Users/tanish/Documents/Computer Graphics/assignments/1/src/button.cpp
+button.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/src/button.h
+
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/button.h
 glad/glad.h
 -
@@ -161,6 +165,10 @@ game_object.h
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/game_object.h
 vector
 -
+
+/Users/tanish/Documents/Computer Graphics/assignments/1/src/player.cpp
+player.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/src/player.h
 
 /Users/tanish/Documents/Computer Graphics/assignments/1/src/player.h
 glad/glad.h
