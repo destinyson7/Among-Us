@@ -69,6 +69,12 @@ void Game::Init()
 	ResourceManager::LoadTexture("../source/textures/bomb.png", true, "bomb_button");
 	ResourceManager::LoadTexture("../source/textures/exit.jpeg", false, "exit_button");
 
+	ResourceManager::LoadTexture("../source/textures/player0.png", true, "player0");
+	ResourceManager::LoadTexture("../source/textures/player1.png", true, "player1");
+	ResourceManager::LoadTexture("../source/textures/player2.png", true, "player2");
+	ResourceManager::LoadTexture("../source/textures/player3.png", true, "player3");
+	ResourceManager::LoadTexture("../source/textures/player4.png", true, "player4");
+
 	Shader playerShader = ResourceManager::GetShader("player");
 	PlayerRenderer = new Player(playerShader, MazeRenderer);
 
@@ -242,7 +248,8 @@ void Game::Render()
 	{
 		MazeRenderer->DrawMaze();
 
-		Texture2D playerTexture = ResourceManager::GetTexture("player");
+		string texture_cnt = "player" + to_string((PlayerRenderer->move_cnt / 7) % 5);
+		Texture2D playerTexture = ResourceManager::GetTexture(texture_cnt);
 		PlayerRenderer->DrawPlayer(playerTexture);
 
 		if (ImposterRenderer->exists)

@@ -71,40 +71,48 @@ void Player::move(int direction, float dt, Maze *MazeRenderer)
 	if (direction == UP)
 	{
 		this->cur.ss += dt;
+		this->move_cnt++;
 
 		if (CheckCollision(MazeRenderer))
 		{
 			this->cur.ss -= dt;
+			this->move_cnt--;
 		}
 	}
 
 	else if (direction == DOWN)
 	{
 		this->cur.ss -= dt;
+		this->move_cnt++;
 
 		if (CheckCollision(MazeRenderer))
 		{
 			this->cur.ss += dt;
+			this->move_cnt--;
 		}
 	}
 
 	else if (direction == LEFT)
 	{
 		this->cur.ff -= dt;
+		this->move_cnt++;
 
 		if (CheckCollision(MazeRenderer))
 		{
 			this->cur.ff += dt;
+			this->move_cnt--;
 		}
 	}
 
 	else if (direction == RIGHT)
 	{
 		this->cur.ff += dt;
+		this->move_cnt++;
 
 		if (CheckCollision(MazeRenderer))
 		{
 			this->cur.ff -= dt;
+			this->move_cnt--;
 		}
 	}
 }

@@ -26,6 +26,7 @@ public:
 	const float PLAYER_SIZE = 0.1;
 	int health = 100;
 	int tasks_completed = 0;
+	int move_cnt = 0;
 
 	pff begin;
 	pff cur;
