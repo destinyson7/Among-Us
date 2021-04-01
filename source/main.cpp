@@ -68,7 +68,6 @@ int main(int argc, char *argv[])
         {
             time_cnt = 0;
             AmongUs.time_remaining--;
-
             AmongUs.time_remaining = max(0, AmongUs.time_remaining);
         }
         // calculate delta time

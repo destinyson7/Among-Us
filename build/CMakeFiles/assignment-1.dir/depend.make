@@ -434,6 +434,7 @@ CMakeFiles/assignment-1.dir/source/imposter.cpp.o: ../source/game_object.h
 CMakeFiles/assignment-1.dir/source/imposter.cpp.o: ../source/imposter.cpp
 CMakeFiles/assignment-1.dir/source/imposter.cpp.o: ../source/imposter.h
 CMakeFiles/assignment-1.dir/source/imposter.cpp.o: ../source/maze.h
+CMakeFiles/assignment-1.dir/source/imposter.cpp.o: ../source/player.h
 CMakeFiles/assignment-1.dir/source/imposter.cpp.o: ../source/shader.h
 CMakeFiles/assignment-1.dir/source/imposter.cpp.o: ../source/texture.h
 CMakeFiles/assignment-1.dir/source/imposter.cpp.o: /usr/local/include/glm/common.hpp

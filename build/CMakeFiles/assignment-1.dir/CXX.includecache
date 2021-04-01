@@ -139,6 +139,20 @@ shader.h
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/shader.h
 maze.h
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.h
+player.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/player.h
+
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/main.cpp
+glad/glad.h
+-
+GLFW/glfw3.h
+-
+game.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/game.h
+resource_manager.h
+/Users/tanish/Documents/Computer Graphics/assignments/1/source/resource_manager.h
+iostream
+-
 
 /Users/tanish/Documents/Computer Graphics/assignments/1/source/maze.h
 glad/glad.h

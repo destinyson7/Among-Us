@@ -8,8 +8,8 @@
 enum GameState
 {
 	GAME_ACTIVE,
-	GAME_MENU,
-	GAME_WIN
+	GAME_WIN,
+	GAME_LOSE
 };
 
 // Game holds all game-related state and functionality.
@@ -19,7 +19,7 @@ class Game
 {
 public:
 	// game state
-	GameState State;
+	GameState State = GAME_ACTIVE;
 	bool Keys[1024];
 	int time_remaining = 60;
 	unsigned int Width, Height;

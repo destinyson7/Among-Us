@@ -18,6 +18,7 @@ Button *coinRenderer2;
 Button *coinRenderer3;
 Button *bombRenderer1;
 Button *bombRenderer2;
+Button *exitDoorRenderer;
 
 Game::Game(unsigned int width, unsigned int height)
 	: State(GAME_ACTIVE), Keys(), Width(width), Height(height)
@@ -32,6 +33,12 @@ Game::~Game()
 	delete ImposterRenderer;
 	delete KillButtonRenderer;
 	delete ActivateButtonRenderer;
+	delete coinRenderer1;
+	delete coinRenderer2;
+	delete coinRenderer3;
+	delete bombRenderer1;
+	delete bombRenderer2;
+	delete exitDoorRenderer;
 }
 
 void Game::Init()
@@ -60,6 +67,7 @@ void Game::Init()
 	ResourceManager::LoadTexture("../source/textures/boost.png", true, "activate_button");
 	ResourceManager::LoadTexture("../source/textures/coin.png", true, "coin_button");
 	ResourceManager::LoadTexture("../source/textures/bomb.png", true, "bomb_button");
+	ResourceManager::LoadTexture("../source/textures/exit.jpeg", false, "exit_button");
 
 	Shader playerShader = ResourceManager::GetShader("player");
 	PlayerRenderer = new Player(playerShader, MazeRenderer);
@@ -88,6 +96,10 @@ void Game::Init()
 
 	bombRenderer1->exists = false;
 	bombRenderer2->exists = false;
+
+	Shader exitShader = ResourceManager::GetShader("button");
+	exitDoorRenderer = new Button(exitShader, MazeRenderer);
+	exitDoorRenderer->exists = false;
 
 	Text = new TextRenderer(this->Width, this->Height);
 	Text->Load("../source/fonts/OCRAEXT.TTF", 40);
@@ -141,6 +153,14 @@ void Game::ProcessInput(float dt)
 			ImposterRenderer->move(RIGHT, dt, MazeRenderer);
 		}
 
+		if (ImposterRenderer->CheckCollisionWithPlayer(PlayerRenderer))
+		{
+			ImposterRenderer->exists = false;
+			PlayerRenderer->health -= 75;
+			PlayerRenderer->health = max(0, PlayerRenderer->health);
+			KillButtonRenderer->exists = false;
+		}
+
 		if (KillButtonRenderer->CheckCollision(PlayerRenderer))
 		{
 			KillButtonRenderer->exists = false;
@@ -180,12 +200,14 @@ void Game::ProcessInput(float dt)
 	{
 		bombRenderer1->exists = false;
 		PlayerRenderer->health -= 50;
+		PlayerRenderer->health = max(0, PlayerRenderer->health);
 	}
 
 	if (bombRenderer2->exists && bombRenderer2->CheckCollision(PlayerRenderer))
 	{
 		bombRenderer2->exists = false;
 		PlayerRenderer->health -= 50;
+		PlayerRenderer->health = max(0, PlayerRenderer->health);
 	}
 
 	if ((!(ImposterRenderer->exists)) && ((!(coinRenderer1->exists) && !(coinRenderer2->exists) && !(coinRenderer3->exists)) && !(ActivateButtonRenderer->exists)))
@@ -197,65 +219,99 @@ void Game::ProcessInput(float dt)
 	{
 		PlayerRenderer->tasks_completed = 1;
 	}
+
+	if (PlayerRenderer->tasks_completed == 2)
+	{
+		exitDoorRenderer->exists = true;
+	}
+
+	if (exitDoorRenderer->exists && exitDoorRenderer->CheckCollision(PlayerRenderer))
+	{
+		this->State = GAME_WIN;
+	}
+
+	if (PlayerRenderer->health <= 0 || this->time_remaining <= 0)
+	{
+		this->State = GAME_LOSE;
+	}
 }
 
 void Game::Render()
 {
-	MazeRenderer->DrawMaze();
-
-	Texture2D playerTexture = ResourceManager::GetTexture("player");
-	PlayerRenderer->DrawPlayer(playerTexture);
-
-	if (ImposterRenderer->exists)
+	if (this->State == GAME_ACTIVE)
 	{
-		Texture2D imposterTexture = ResourceManager::GetTexture("imposter");
-		ImposterRenderer->DrawImposter(imposterTexture);
+		MazeRenderer->DrawMaze();
+
+		Texture2D playerTexture = ResourceManager::GetTexture("player");
+		PlayerRenderer->DrawPlayer(playerTexture);
+
+		if (ImposterRenderer->exists)
+		{
+			Texture2D imposterTexture = ResourceManager::GetTexture("imposter");
+			ImposterRenderer->DrawImposter(imposterTexture);
+		}
+
+		if (KillButtonRenderer->exists)
+		{
+			Texture2D killButtonTexture = ResourceManager::GetTexture("kill_button");
+			KillButtonRenderer->DrawButton(killButtonTexture);
+		}
+
+		if (ActivateButtonRenderer->exists)
+		{
+			Texture2D activateButtonTexture = ResourceManager::GetTexture("activate_button");
+			ActivateButtonRenderer->DrawButton(activateButtonTexture);
+		}
+
+		if (coinRenderer1->exists)
+		{
+			Texture2D coinTexture1 = ResourceManager::GetTexture("coin_button");
+			coinRenderer1->DrawButton(coinTexture1);
+		}
+
+		if (coinRenderer2->exists)
+		{
+			Texture2D coinTexture2 = ResourceManager::GetTexture("coin_button");
+			coinRenderer2->DrawButton(coinTexture2);
+		}
+
+		if (coinRenderer3->exists)
+		{
+			Texture2D coinTexture3 = ResourceManager::GetTexture("coin_button");
+			coinRenderer3->DrawButton(coinTexture3);
+		}
+
+		if (bombRenderer1->exists)
+		{
+			Texture2D bombTexture1 = ResourceManager::GetTexture("bomb_button");
+			bombRenderer1->DrawButton(bombTexture1);
+		}
+
+		if (bombRenderer2->exists)
+		{
+			Texture2D bombTexture2 = ResourceManager::GetTexture("bomb_button");
+			bombRenderer2->DrawButton(bombTexture2);
+		}
+
+		if (exitDoorRenderer->exists)
+		{
+			Texture2D exitTexture = ResourceManager::GetTexture("exit_button");
+			exitDoorRenderer->DrawButton(exitTexture);
+		}
+
+		Text->RenderText("Health: " + to_string(PlayerRenderer->health), 170.0f, 25.0f, 1.0f);
+		Text->RenderText("Tasks: " + to_string(PlayerRenderer->tasks_completed) + "/2", 170.0f, 60.0f, 1.0f);
+		Text->RenderText("Light: " + MazeRenderer->lighting, 170.0f, 95.0f, 1.0f);
+		Text->RenderText("Time: " + to_string(this->time_remaining), 170.0f, 130.0f, 1.0f);
 	}
 
-	if (KillButtonRenderer->exists)
+	else if (this->State == GAME_WIN)
 	{
-		Texture2D killButtonTexture = ResourceManager::GetTexture("kill_button");
-		KillButtonRenderer->DrawButton(killButtonTexture);
+		Text->RenderText("GAME OVER. YOU WON :)", 160.0f, 450.0f, 2.0f);
 	}
 
-	if (ActivateButtonRenderer->exists)
+	else if (this->State == GAME_LOSE)
 	{
-		Texture2D activateButtonTexture = ResourceManager::GetTexture("activate_button");
-		ActivateButtonRenderer->DrawButton(activateButtonTexture);
+		Text->RenderText("GAME OVER. YOU LOST :(", 160.0f, 450.0f, 2.0f);
 	}
-
-	if (coinRenderer1->exists)
-	{
-		Texture2D coinTexture1 = ResourceManager::GetTexture("coin_button");
-		coinRenderer1->DrawButton(coinTexture1);
-	}
-
-	if (coinRenderer2->exists)
-	{
-		Texture2D coinTexture2 = ResourceManager::GetTexture("coin_button");
-		coinRenderer2->DrawButton(coinTexture2);
-	}
-
-	if (coinRenderer3->exists)
-	{
-		Texture2D coinTexture3 = ResourceManager::GetTexture("coin_button");
-		coinRenderer3->DrawButton(coinTexture3);
-	}
-
-	if (bombRenderer1->exists)
-	{
-		Texture2D bombTexture1 = ResourceManager::GetTexture("bomb_button");
-		bombRenderer1->DrawButton(bombTexture1);
-	}
-
-	if (bombRenderer2->exists)
-	{
-		Texture2D bombTexture2 = ResourceManager::GetTexture("bomb_button");
-		bombRenderer2->DrawButton(bombTexture2);
-	}
-
-	Text->RenderText("Health: " + to_string(PlayerRenderer->health), 170.0f, 25.0f, 1.0f);
-	Text->RenderText("Tasks: " + to_string(PlayerRenderer->tasks_completed) + "/2", 170.0f, 60.0f, 1.0f);
-	Text->RenderText("Light: " + MazeRenderer->lighting, 170.0f, 95.0f, 1.0f);
-	Text->RenderText("Time: " + to_string(this->time_remaining), 170.0f, 130.0f, 1.0f);
 }

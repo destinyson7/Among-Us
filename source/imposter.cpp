@@ -62,6 +62,22 @@ bool Imposter::CheckCollision(Maze *MazeRenderer)
 	return false;
 }
 
+bool Imposter::CheckCollisionWithPlayer(Player *PlayerRenderer)
+{
+
+	bool collisionX = (this->cur.ff + this->IMPOSTER_SIZE >= PlayerRenderer->cur.ff) && (this->cur.ff <= PlayerRenderer->cur.ff + PlayerRenderer->PLAYER_SIZE);
+	bool collisionY = (this->cur.ss + this->IMPOSTER_SIZE >= PlayerRenderer->cur.ss) && (this->cur.ss <= PlayerRenderer->cur.ss + PlayerRenderer->PLAYER_SIZE);
+
+	if (collisionX && collisionY)
+	{
+		// cout << "true" << endl;
+		return true;
+	}
+
+	// cout << "false" << endl;
+	return false;
+}
+
 void Imposter::move(int direction, float dt, Maze *MazeRenderer)
 {
 	if (direction == UP)

@@ -9,6 +9,7 @@
 #include "texture.h"
 #include "shader.h"
 #include "maze.h"
+#include "player.h"
 
 #define mp make_pair
 #define ff first
@@ -34,6 +35,7 @@ public:
 	void DrawImposter(Texture2D &texture);
 	void move(int direction, float dt, Maze *MazeRenderer);
 	bool CheckCollision(Maze *MazeRenderer);
+	bool CheckCollisionWithPlayer(Player *PlayerRenderer);
 
 private:
 	// Render state
