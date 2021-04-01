@@ -56,7 +56,7 @@ void Game::Init()
 	// load textures
 	ResourceManager::LoadTexture("../source/textures/among_us.png", true, "player");
 	ResourceManager::LoadTexture("../source/textures/imposter.png", true, "imposter");
-	ResourceManager::LoadTexture("../source/textures/kill.png", true, "kill_button");
+	ResourceManager::LoadTexture("../source/textures/kill.jpeg", true, "kill_button");
 	ResourceManager::LoadTexture("../source/textures/boost.png", true, "activate_button");
 	ResourceManager::LoadTexture("../source/textures/coin.png", true, "coin_button");
 	ResourceManager::LoadTexture("../source/textures/bomb.png", true, "bomb_button");
@@ -188,12 +188,12 @@ void Game::ProcessInput(float dt)
 		PlayerRenderer->health -= 50;
 	}
 
-	if ((!(ImposterRenderer->exists)) && (!(coinRenderer1->exists) && !(coinRenderer2->exists) && !(coinRenderer3->exists)))
+	if ((!(ImposterRenderer->exists)) && ((!(coinRenderer1->exists) && !(coinRenderer2->exists) && !(coinRenderer3->exists)) && !(ActivateButtonRenderer->exists)))
 	{
 		PlayerRenderer->tasks_completed = 2;
 	}
 
-	else if ((!(ImposterRenderer->exists)) || (!(coinRenderer1->exists) && !(coinRenderer2->exists) && !(coinRenderer3->exists)))
+	else if ((!(ImposterRenderer->exists)) || ((!(coinRenderer1->exists) && !(coinRenderer2->exists) && !(coinRenderer3->exists)) && !(ActivateButtonRenderer->exists)))
 	{
 		PlayerRenderer->tasks_completed = 1;
 	}
