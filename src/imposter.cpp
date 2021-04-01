@@ -26,6 +26,11 @@ void Imposter::DrawImposter(Texture2D &texture)
 	glm::mat4 model = glm::mat4(1.0f);
 	model = glm::translate(model, glm::vec3(this->cur.ff, this->cur.ss, 0.0f)); // first translate (transformations are: scale happens first, then rotation, and then final translation happens; reversed order)
 
+	if (this->going_left)
+	{
+		model = glm::scale(glm::translate(model, glm::vec3(this->IMPOSTER_SIZE, 0.0f, 0.0f)), glm::vec3(-1.0f, 1.0f, 1.0f));
+	}
+
 	// model = glm::translate(model, glm::vec3(0.5f * size.x, 0.5f * size.y, 0.0f));	// move origin of rotation to center of quad
 	// model = glm::rotate(model, glm::radians(rotate), glm::vec3(0.0f, 0.0f, 1.0f));	// then rotate
 	// model = glm::translate(model, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.0f)); // move origin back
@@ -67,8 +72,8 @@ bool Imposter::CheckCollision(Maze *MazeRenderer)
 bool Imposter::CheckCollisionWithPlayer(Player *PlayerRenderer)
 {
 
-	bool collisionX = (this->cur.ff + this->IMPOSTER_SIZE > PlayerRenderer->cur.ff) && (this->cur.ff < PlayerRenderer->cur.ff + PlayerRenderer->PLAYER_SIZE);
-	bool collisionY = (this->cur.ss + this->IMPOSTER_SIZE > PlayerRenderer->cur.ss) && (this->cur.ss < PlayerRenderer->cur.ss + PlayerRenderer->PLAYER_SIZE);
+	bool collisionX = (this->cur.ff + this->IMPOSTER_SIZE >= PlayerRenderer->cur.ff) && (this->cur.ff <= PlayerRenderer->cur.ff + PlayerRenderer->PLAYER_SIZE);
+	bool collisionY = (this->cur.ss + this->IMPOSTER_SIZE >= PlayerRenderer->cur.ss) && (this->cur.ss <= PlayerRenderer->cur.ss + PlayerRenderer->PLAYER_SIZE);
 
 	if (collisionX && collisionY)
 	{
@@ -149,6 +154,7 @@ void Imposter::move(Player *PlayerRenderer, float dt, Maze *MazeRenderer)
 		this->travelled.ff += dt / 4;
 		want_coord = this->travelled;
 		this->mov_cnt++;
+		this->going_left = false;
 
 		if (this->CheckCollision(MazeRenderer))
 		{
@@ -168,6 +174,8 @@ void Imposter::move(Player *PlayerRenderer, float dt, Maze *MazeRenderer)
 		this->travelled.ff -= dt / 4;
 		want_coord = this->travelled;
 		this->mov_cnt++;
+
+		this->going_left = true;
 
 		if (this->CheckCollision(MazeRenderer))
 		{
@@ -189,6 +197,7 @@ void Imposter::move(Player *PlayerRenderer, float dt, Maze *MazeRenderer)
 			this->cur.ff -= dt / 4;
 			this->travelled.ff -= dt / 4;
 			this->mov_cnt++;
+			this->going_left = true;
 
 			// cout << "going left" << endl;
 

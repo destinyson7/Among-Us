@@ -44,6 +44,7 @@ public:
 
 	const float IMPOSTER_SIZE = 0.1;
 	bool exists = true;
+	bool going_left = false;
 
 	int mov_cnt = 0;
 
